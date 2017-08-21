@@ -6,7 +6,10 @@ import {APP_ROUTING} from './app.routes';
 
 // M A T E R I A L I Z E
 import { MaterializeModule } from 'angular2-materialize';
-
+//ANGULAR FIRE
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { environment } from '../environments/environment';
 // C O M P O N E N T E S
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
@@ -65,7 +68,9 @@ import { RegistroVehiculosComponent } from './components/admin/contenido/vehicul
   imports: [
     APP_ROUTING,
     MaterializeModule,
-    BrowserModule
+    BrowserModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule
   ],
   providers: [],
   bootstrap: [AppComponent]
