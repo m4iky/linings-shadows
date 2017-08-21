@@ -1,0 +1,53 @@
+.general{
+  width: 100%;
+  overflow: hidden;
+}
+
+h1{
+  text-align: center;
+}
+
+.mapa{
+  margin-top: 45px;
+  width: 50%;
+  overflow: hidden;
+  float: left;
+}
+
+
+
+.formulario{
+  margin-top: 40px;
+  width: 50%;
+  overflow: hidden;
+  float: left;
+}
+
+
+@media screen and (max-width: 1049px ) {
+  .mapa{
+    margin: auto;
+    margin-top: 40px;
+    width: 100%;
+    overflow: hidden;
+    float: left;
+  }
+
+
+  .formulario{
+    margin: auto;
+    margin-top: 40px;
+    width: 100%;
+    overflow: hidden;
+    float: left;
+  }
+
+  .mapa1{
+    margin-top: 40px;
+    width: 100%;
+    overflow: hidden;
+    float: left;
+    margin-left: calc(15% - 100px);
+  }
+
+}
