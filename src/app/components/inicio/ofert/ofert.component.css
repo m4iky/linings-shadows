@@ -1,0 +1,11 @@
+.hid{
+  display: none;
+}
+@media (max-width:600px){
+  .of{
+    display: none!important;
+  }
+  .hid{
+    display: block;
+  }
+}

@@ -1,0 +1,60 @@
+nav{
+  margin: 0!important;
+  margin-top: -20px!important;
+  height: 44px!important;
+}
+
+.cont{
+  width: 80%!important;
+  float: left;
+}
+.bn{
+  display: none;
+  border-radius:0;
+}
+.base{
+
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+.right-forms{
+    width: 50%;
+    padding: 0;
+    margin: 0;
+    float: left;
+}
+.left-forms{
+  width: 50%;
+  height: 500px;
+  float: left;
+}
+.right-forms > div{
+  width: 100%;
+}
+.bh{
+  width: 100%!important;
+}
+.base_reg{
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+.left-forms > div{
+  width: 100%!important;
+
+}
+
+@media (max-width:600px){
+    .url{
+      display: none!important;
+    }
+    .left-forms, .right-forms{
+      width: 100%!important;
+      height: initial;
+    }
+    .right-forms{
+      height: 450px;
+    }
+
+}

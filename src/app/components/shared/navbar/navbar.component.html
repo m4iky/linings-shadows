@@ -1,0 +1,106 @@
+<div *ngIf="!estado" class="navbar-fixeds">
+  <nav>
+      <div class="nav-wrapper #006064 cyan darken-4">
+        <a href="#!" class="brand-logo"> ADMIN </a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down ">
+
+          <!-- botones flex del menu en pantallas grandes -->
+          <li><a [routerLink]="['home']" routerLinkActive="activado"><i class="material-icons left">home</i></a></li>
+          <li><a [routerLink]="['cars']" routerLinkActive="activado"><i class="material-icons left">directions_car</i></a></li>
+          <li><a  [routerLink]="['offers']" routerLinkActive="activado"><i class="material-icons left">alarm</i></a></li>
+            <li><a  [routerLink]="['terms']" routerLinkActive="activado"><i class="material-icons left">playlist_add_check</i></a></li>
+          <li><a [routerLink]="['contacts']" routerLinkActive="activado"><i class="material-icons left">settings_phone</i></a></li>
+          <li><a [routerLink]="['admin']" routerLinkActive="activado"><i class="material-icons left">account_circle</i>{{ navbar[6] }}</a></li>
+        </ul>
+      </div>
+    </nav>
+</div>
+
+
+
+
+<nav *ngIf="!estado">
+    <div  class="nav-wrapper #000000 black">
+    <a href="#!" class="brand-logo">ADMIN</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+
+        <!-- botones flex del menu en pantallas grandes -->
+        <li><a [routerLink]="['home']" routerLinkActive="activado"><i class="material-icons left">home</i></a> </li>
+        <li><a [routerLink]="['cars']" routerLinkActive="activado"><i class="material-icons left">directions_car</i></a></li>
+        <li><a  [routerLink]="['offers']" routerLinkActive="activado"><i class="material-icons left">alarm</i></a></li>
+          <li><a  [routerLink]="['terms']" routerLinkActive="activado"><i class="material-icons left">playlist_add_check</i></a></li>
+        <li><a [routerLink]="['contacts']" routerLinkActive="activado"><i class="material-icons left">settings_phone</i></a></li>
+          <li><a [routerLink]="['admin']" routerLinkActive="activado"><i class="material-icons left">account_circle</i>{{ navbar[6] }}</a></li>
+
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+
+        <!-- botones flex del menu en dispositivos mobiles -->
+        <li><a href="/home" routerLinkActive="activado"><i class="material-icons left">home</i>{{ navbar[0] }}</a> </li>
+        <li><a href="/cars" routerLinkActive="activado"><i class="material-icons left">directions_car</i>{{ navbar[1] }}</a></li>
+        <li><a  href="/offers" routerLinkActive="activado"><i class="material-icons left">alarm</i>{{ navbar[2] }}</a></li>
+          <li><a  href="/terms" routerLinkActive="activado"><i class="material-icons left">playlist_add_check</i>{{ navbar[3] }}</a></li>
+        <li><a href="/contacts" routerLinkActive="activado"><i class="material-icons left">settings_phone</i>{{ navbar[4] }}</a></li>
+          <li><a href="/admin" routerLinkActive="activado"><i class="material-icons left">account_circle</i>{{ navbar[6] }}</a></li>
+
+      </ul>
+    </div>
+  </nav>
+
+
+
+<!-- barra de navegacion normal -->
+
+<div *ngIf="estado" class="navbar-fixeds">
+  <nav>
+      <div class="nav-wrapper #0d47a1 blue darken-4">
+        <a href="#!" class="brand-logo"> {{ navbar[5] }} </a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down ">
+
+          <!-- botones flex del menu en pantallas grandes -->
+          <li><a [routerLink]="['home']" routerLinkActive="activado"><i class="material-icons left">home</i> {{ navbar[0] }} </a> </li>
+          <li><a [routerLink]="['cars']" routerLinkActive="activado"><i class="material-icons left">directions_car</i> {{ navbar[1] }} </a></li>
+          <li><a  [routerLink]="['offers']" routerLinkActive="activado"><i class="material-icons left">playlist_add_check</i> {{ navbar[2] }} </a></li>
+            <li><a  [routerLink]="['terms']" routerLinkActive="activado"><i class="material-icons left">playlist_add_check</i> {{ navbar[3] }} </a></li>
+          <li><a [routerLink]="['contacts']" routerLinkActive="activado"><i class="material-icons left">settings_phone</i> {{ navbar[4] }} </a></li>
+        </ul>
+      </div>
+    </nav>
+</div>
+
+
+
+
+<nav *ngIf="estado">
+    <div  class="nav-wrapper #212121 grey darken-4">
+    <a href="#!" class="brand-logo"> {{ navbar[5] }} </a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+
+        <!-- botones flex del menu en pantallas grandes -->
+        <li><a [routerLink]="['home']" routerLinkActive="activado"><i class="material-icons left">home</i> {{ navbar[0] }} </a> </li>
+        <li><a [routerLink]="['cars']" routerLinkActive="activado"><i class="material-icons left">directions_car</i> {{ navbar[1] }} </a></li>
+        <li><a  [routerLink]="['offers']" routerLinkActive="activado"><i class="material-icons left">playlist_add_check</i> {{ navbar[2] }} </a></li>
+          <li><a  [routerLink]="['terms']" routerLinkActive="activado"><i class="material-icons left">playlist_add_check</i> {{ navbar[3] }} </a></li>
+        <li><a [routerLink]="['contacts']" routerLinkActive="activado"><i class="material-icons left">settings_phone</i> {{ navbar[4] }} </a></li>
+
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+
+        <!-- botones flex del menu en dispositivos mobiles -->
+        <li><a href="/home" ><i class="material-icons left">home</i> {{ navbar[0] }} </a> </li>
+        <li><a href="/cars" ><i class="material-icons left">directions_car</i> {{ navbar[1] }} </a></li>
+        <li><a href="/offers" ><i class="material-icons left">playlist_add_check</i> {{ navbar[2] }} </a></li>
+          <li><a href="/terms" ><i class="material-icons left">playlist_add_check</i> {{ navbar[3] }} </a></li>
+        <li><a href="/contacts" ><i class="material-icons left">settings_phone</i> {{ navbar[4] }} </a></li>
+
+      </ul>
+    </div>
+  </nav>
+
+
+
+  <app-drop></app-drop>

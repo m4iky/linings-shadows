@@ -1,0 +1,29 @@
+nav > div{
+  padding-left: 10px;
+}
+
+.activado{
+  color:white!important;
+}
+
+.hide-on-med-and-down a{
+    color:silver;
+}
+
+.navbar-fixeds{
+
+  top:-100px;
+  position: fixed;
+  width: 100%;
+  z-index: 40;
+  -webkit-transition:all 0.5s;
+  -moz-transition:all 0.5s;
+  -o-transition:all 0.5s;
+  transition:all 0.5s;
+}
+
+@media (max-width:990px){
+  .navbar-fixeds{
+    display: none;
+  }
+}

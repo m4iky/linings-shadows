@@ -1,0 +1,82 @@
+<nav class="url #212121 grey darken-4">
+  <div class="nav-wrapper">
+    <div class="col m12 nave ">
+      <a [routerLink]="['/admin','home']" class="breadcrumb">Admin</a>
+      <a [routerLink]="['/admin','cars']" class="breadcrumb">Vehiculos</a>
+    </div>
+  </div>
+</nav>
+
+<!-- contenido de vehiculos  -->
+
+<!-- buscador de vehiculos  -->
+<div class="conte_busc">
+
+<div class="row abs">
+  <div class="col s12">
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">search</i>
+
+        <!-- input para buscar vehiculos -->
+        <input type="text" id="autocomplete-input" class="autocomplete">
+        <!--  -->
+
+        <label for="autocomplete-input">Buscar vehiculos</label>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+<!--  -->
+
+
+
+<div class="base-tablet">
+
+<!-- tabla de registros -->
+  <table class="striped">
+  <thead>
+  <tr>
+   <th>Marca</th>
+   <th>Modelo</th>
+   <th>Posición</th>
+   <th>Precio</th>
+   <th>Estado</th>
+   <th>Oferta</th>
+   <th></th>
+   <th></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+ <td>MERCEDES ML 350 2010</td>
+ <td>ML350</td>
+ <td>21</td>
+ <td>$110,00</td>
+ <td>Disponible</td>
+ <td><button class="btn btn-floating #b2ff59 light-green accent-2"><i style="color:rgb(72, 167, 67)" class="material-icons">loyalty</i></button></td>
+  <td><button [routerLink]="['/admin','car','45']" class="btn btn-floating #0277bd light-blue darken-3"><i class="material-icons">create</i></button></td>
+  <td><button class="btn btn-floating #e53935 red darken-1"><i class="material-icons">delete</i></button></td>
+</tr>
+
+<tr>
+ <td>MERCEDES ML 350 2010</td>
+ <td>ML350</td>
+ <td>21</td>
+ <td>$110,00</td>
+ <td>Disponible</td>
+ <td><button class="btn btn-floating #b2ff59 light-green accent-2" disabled><i style="color:rgb(72, 167, 67)" class="material-icons">loyalty</i></button></td>
+  <td><button [routerLink]="['/admin','car','45']" class="btn btn-floating #0277bd light-blue darken-3"><i class="material-icons">create</i></button></td>
+  <td><button class="btn btn-floating #e53935 red darken-1"><i class="material-icons">delete</i></button></td>
+</tr>
+
+
+
+</tbody>
+</table>
+
+
+</div>

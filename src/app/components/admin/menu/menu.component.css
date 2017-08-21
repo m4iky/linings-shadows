@@ -1,0 +1,26 @@
+*{
+  padding: 0!important;
+  margin: 0!important;
+  border:none;
+  border-radius: 0px;
+}
+.collapsible-header{
+  padding: 10px!important;
+}
+.collapsible-body a{
+  padding: 20px!important;
+}
+.lol{
+  border-radius: 3px;
+}
+.menu{
+  height: 100%;
+  width: 20%;
+  float: left;
+}
+
+@media (max-width:700px){
+  .menu{
+    display: none!important;
+  }
+}

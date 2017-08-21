@@ -1,0 +1,56 @@
+nav{
+  margin: 0!important;
+  margin-top: -20px!important;
+  height: 44px!important;
+}
+
+.cont{
+  width: 80%!important;
+  float: left;
+}
+.bn{
+  display: none;
+  border-radius:0;
+}
+
+.base-tablet{
+  width: 95%;
+  height: calc(100% - 100px);
+  overflow: auto;
+
+  margin: auto;
+}
+button > i{
+  font-size: 17px;
+}
+
+
+
+@media (max-width:700px){
+  .cont{
+    width: 100%!important;
+  }
+  
+  .conte_busc{
+    display: none;
+  }
+
+  .bn{
+    display:block!important;
+  }
+
+  .url{
+    display: none!important;
+  }
+
+}
+
+.conte_busc{
+  height: 70px;
+
+  position: relative;
+}
+.abs{
+    width: 50%;
+  position: absolute;
+}

@@ -1,0 +1,18 @@
+  <div class="cont  " >
+
+
+    <button [routerLink]="['/admin','cars']" class="btn bn col s6 m6 #01579b light-blue darken-4"> Vehiculos </button>
+    <button [routerLink]="['/admin','offers']" class="btn bn col s6 m6 #01579b light-blue darken-4"> Ofertas </button>
+
+<!-- aqui se renderizan todas las rutas hijas -->
+      <router-outlet></router-outlet>
+<!--  -->
+  </div>
+
+<!-- este es el boton para registrar nuevos vehiculos -->
+  <div class="fixed-action-btn  ">
+     <a [routerLink]="['/admin','car','registrar']" class="btn-floating btn-large #d50000 red accent-4 pulse">
+       <i class="material-icons">add</i>
+     </a>
+
+   </div>
