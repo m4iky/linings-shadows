@@ -59,7 +59,7 @@
  <td *ngIf="vehiculo.estado == 1">Disponible</td>
  <td *ngIf="vehiculo.estado != 1">Oferta</td>
  <td><button class="btn btn-floating #b2ff59 light-green accent-2" disabled><i style="color:rgb(72, 167, 67)" class="material-icons">loyalty</i></button></td>
-  <td><button [routerLink]="['/admin','car','45']" class="btn btn-floating #0277bd light-blue darken-3"><i class="material-icons">create</i></button></td>
+  <td><button [routerLink]="['/admin','car',vehiculo.$key]" class="btn btn-floating #0277bd light-blue darken-3"><i class="material-icons">create</i></button></td>
   <td><button class="btn btn-floating #e53935 red darken-1"><i class="material-icons">delete</i></button></td>
 </tr>
 

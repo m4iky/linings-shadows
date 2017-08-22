@@ -5,7 +5,7 @@
     <div class="col m12 nave ">
       <a [routerLink]="['/admin','home']" class="breadcrumb">Admin</a>
       <a [routerLink]="['/admin','cars']" class="breadcrumb">Vehiculos</a>
-        <a [routerLink]="['/admin','car','registro']" class="breadcrumb">Registro</a>
+        <a [routerLink]="['/admin','car','registro']" class="breadcrumb">{{Estado}}</a>
     </div>
   </div>
 </nav>
@@ -14,7 +14,7 @@
 
 <div class="base_reg">
 
-   <form class="col s12" (ngSubmit)='guardar()'>
+   <form class="col s12" [formGroup]="validar"  (ngSubmit)='guardar()'>
 
      <div class="left-forms">
 
@@ -22,10 +22,12 @@
        <div class="input-field col s12">
 
         <!-- marca -->
-         <input id="icon_prefix" type="text" [(ngModel)]='vehiculos.marca' name='marca' class="validate">
+         <input id="icon_prefix" type="text" formControlName="marca" [(ngModel)]='vehiculos.marca' name='marca' class="validate">
         <!--  -->
-
-         <label for="icon_prefix">Marca</label>
+        <div [ngClass]="{'red-text':validar.get('marca').errors?.pattern}" *ngIf="validar.get('marca').errors?.pattern">
+        Este campo solo puede llevar letra
+      </div>
+         <label *ngIf="!editar"  for="icon_prefix">Marca</label>
        </div>
 
 
@@ -36,29 +38,32 @@
        <div class="input-field col s12">
 
           <!-- modelo -->
-         <input id="icon_prefix" type="text"  name='modelo' [(ngModel)]='vehiculos.modelo' class="validate">
+         <input id="icon_prefix" type="text"  formControlName="modelo"  name='modelo' [(ngModel)]='vehiculos.modelo' class="validate">
           <!--  -->
 
-         <label for="icon_prefix">Modelo</label>
+         <label *ngIf="!editar" for="icon_prefix">Modelo</label>
        </div>
 
        <div class="input-field col s12">
 
           <!-- modelo -->
-         <input id="icon_prefix" name='precio' [(ngModel)]='vehiculos.precio' type="text" class="validate">
+         <input id="icon_prefix" name='precio' formControlName="precio" [(ngModel)]='vehiculos.precio' type="text" class="validate">
           <!--  -->
+          <div [ngClass]="{'red-text':validar.get('precio').errors?.pattern}" *ngIf="validar.get('precio').errors?.pattern">
+          Este campo solo puede llevar numero
+        </div>
 
-         <label for="icon_prefix">Precio</label>
+         <label *ngIf="!editar"  for="icon_prefix">Precio</label>
        </div>
 
        <div class="col bh m12">
     <div class="input-field col s12">
 
         <!-- Descripcion -->
-      <textarea id="textarea1" name='descripcion' [(ngModel)]='vehiculos.descripcion' class="materialize-textarea"></textarea>
+      <textarea id="textarea1" formControlName="descripcion"  name='descripcion' [(ngModel)]='vehiculos.descripcion' class="materialize-textarea"></textarea>
         <!--  -->
 
-      <label for="textarea1">Descripcion</label>
+      <label *ngIf="!editar" or="textarea1">Descripcion</label>
     </div>
   </div>
 
@@ -75,12 +80,12 @@
   <div class="file-field input-field col m12">
     <div class="btn #1e88e5 blue darken-1">
       <span>Imagen 1</span>
-      <input type="file" class="img1" multiple>
+      <input type="file"  accept="image/*" class="img1" multiple>
     </div>
     <div class="file-path-wrapper">
 
         <!-- imagen 1 -->
-      <input class="file-path validate" type="text" placeholder="Upload one or more files">
+      <input class="file-path validate" type="text" id="nombre" placeholder="Upload one or more files">
          <!--  -->
 
     </div>
@@ -93,7 +98,7 @@
       <span>Imagen 2</span>
 
       <!-- imagen 2 -->
-      <input type="file" class="img2" multiple>
+      <input type="file"  accept="image/*" class="img2" multiple>
       <!--  -->
 
     </div>
@@ -106,7 +111,7 @@
   <div class="file-field input-field col m12">
     <div class="btn #1e88e5 blue darken-1">
       <span>Imagen 3</span>
-      <input type="file" class="img3" multiple>
+      <input type="file"  accept="image/*" class="img3" multiple>
     </div>
     <div class="file-path-wrapper">
 
@@ -121,7 +126,7 @@
   <div class="file-field input-field col m12">
     <div class="btn #1e88e5 blue darken-1">
       <span>Imagen 4</span>
-      <input type="file" class="img4" multiple>
+      <input type="file" accept="image/*" class="img4" multiple>
     </div>
     <div class="file-path-wrapper">
 
@@ -133,7 +138,7 @@
   </div>
 
   <!-- boton submit -->
-    <button type="submit" class="btn center col m6 offset-m3">Registrar</button>
+    <button type="submit"  [disabled]="!validar.valid"  class="btn center col m6 offset-m3">{{Estado}}</button>
   <!--  -->
 </div>
 

@@ -3,6 +3,7 @@ import { AngularFireDatabase, FirebaseListObservable,FirebaseObjectObservable } 
 import {Http} from '@angular/http';
 import 'rxjs/Rx';
 import * as firebase from 'firebase';
+import {Router} from '@angular/router';
 
 declare var $
 @Injectable()
@@ -10,7 +11,7 @@ export class VehiculosService {
   vehiculo:FirebaseListObservable<any>
   vehiculos:FirebaseObjectObservable<any[]>;
   url:string='https://optimux-a0924.firebaseio.com/vehiculos.json';
-  constructor(private _http: Http, private db: AngularFireDatabase) { }
+  constructor(private _http: Http, private db: AngularFireDatabase,private _Router:Router) { }
 
 
   registrar(data){
@@ -23,7 +24,7 @@ export class VehiculosService {
 
   }
   guardar(data){
-    this.registrar(data).subscribe(key=>{
+  this.registrar(data).subscribe(key=>{
       this.guardarimg(key.name)
     })
   }
@@ -31,19 +32,22 @@ export class VehiculosService {
 
     let random = this.Random(999, 9999)
 
-    let estado=false;
-       let array=[]=[];
-          for (var i=1;i<4;i++){
-            array[i]=$("#imagen"+i).val()
-              if(array[i]==""){
-                estado=false
+    let estado=0;
+       let array:any[]=[];
+          for (let a=1;a<=4;a++){
+            array[a-1]=$(".img"+a).val()
+              if(array[a-1]==""){
+
+                  estado--;
 
               }else{
-                estado=true
+                estado++
+
               }
           }
 
-      if(estado == true){
+
+      if(estado==4){
 
 
     for(let i = 1; i<=4; i++){
@@ -65,7 +69,14 @@ export class VehiculosService {
       })
     }// FIN CICLO FOR
 
-  }else{
+      alert("Vehiculos subidos correctamente")
+      this._Router.navigate(['/admin','cars'])
+  }
+
+  else{
+    let database1:FirebaseObjectObservable<any[]>
+    database1=this.db.object(`/vehiculos/${key}`)
+    database1.remove()
     alert("Debe seleccionar 4 imagenes.")
   }
 
@@ -77,6 +88,11 @@ export class VehiculosService {
 
     mostrarVehiculos(){
       this.vehiculo=this.db.list('vehiculos')
+    }
+
+    traerDatosEditar(key){
+      let vehiculo:FirebaseObjectObservable<any>
+    return  vehiculo=this.db.object(`vehiculos/${key}`)
     }
 
 }
