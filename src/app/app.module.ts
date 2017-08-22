@@ -36,7 +36,8 @@ import { VehiculosAdminComponent } from './components/admin/contenido/vehiculos-
 import { HomeAdminComponent } from './components/admin/contenido/home-admin/home-admin.component';
 import { RegistroVehiculosComponent } from './components/admin/contenido/vehiculos-admin/registro-vehiculos/registro-vehiculos.component';
 
-
+ // S E R V I C I O S
+import {VehiculosService} from './servicios/vehiculos.service';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,7 @@ import { RegistroVehiculosComponent } from './components/admin/contenido/vehicul
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule
   ],
-  providers: [],
+  providers: [VehiculosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
