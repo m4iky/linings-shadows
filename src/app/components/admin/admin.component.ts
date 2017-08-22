@@ -13,7 +13,6 @@ export class AdminComponent implements OnInit {
       $('.collapsible').collapsible();
     });
 
-    localStorage.setItem('token','klk')
     if(localStorage.getItem('token')){
       $(document).ready(function(){
         let h = $(window).height() - 106

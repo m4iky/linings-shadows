@@ -41,7 +41,7 @@ import {HttpModule} from '@angular/http';
 import {VehiculosService} from './servicios/vehiculos.service';
 import { LoginComponent } from './components/login/login.component';
 import {LoginService} from './servicios/login.service';
-
+import {GuardiaURLService} from './guardias/guardia-url.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -80,7 +80,7 @@ import {LoginService} from './servicios/login.service';
     HttpModule,
     ReactiveFormsModule
   ],
-  providers: [VehiculosService,LoginService],
+  providers: [VehiculosService,LoginService,GuardiaURLService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -11,7 +11,7 @@
           <i class="material-icons prefix">account_circle</i>
 
                 <!-- nombre de usuario -->
-            <input type="text" id="user" name="user" formControlName="user">
+            <input class="username" type="text" id="user" name="user" [(ngModel)]="datosLog.user" formControlName="user">
 
 
             <label for="user" data-error="wrong" data-success="right">Nombre de usuario</label>
@@ -22,7 +22,7 @@
             <i class="material-icons prefix">lock_outline</i>
 
             <!-- contra -->
-            <input id="password" type="password" name="password" formControlName="password">
+            <input  id="password" type="password" name="password" [(ngModel)]="datosLog.password" formControlName="password">
               <!--  -->
 
             <label for="password">Password</label>
@@ -34,7 +34,7 @@
 
           </div>
         </div>
-        <div class="red-text" *ngIf="(_loginService.error)&&login.get('password').touched">
+        <div class="red-text center-align" *ngIf="this._loginService.error">
           Datos incorrectos!
         </div>
         <div class="row">

@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
 
   login:FormGroup
 
-  datosLog:any={
+  datosLog:any={ /// objeto
     user:"",
     password:""
   }
@@ -23,14 +23,11 @@ export class LoginComponent implements OnInit {
           $(window).scrollTop(0)
     });
 
-    this.login=new FormGroup({
+    this.login=new FormGroup({ // validacion de lso input
       'user':new FormControl('',Validators.required),
       'password':new FormControl('',Validators.required)
     })
 
-    if(localStorage.getItem("token")){
-      this.rn.navigate(['/admin'])
-    }
    }
 
   ngOnInit() {
@@ -39,7 +36,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  logear(){
-    console.log("GG")
+  logear(){ // funcion que se llama en el submit
+    this._loginService.logear(this.datosLog)
   }
 }

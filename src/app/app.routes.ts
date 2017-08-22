@@ -31,6 +31,10 @@ import { AdminComponent } from './components/admin/admin.component';
 // L O G I N
 import {LoginComponent} from './components/login/login.component';
 
+//G U A R D I A S
+import {GuardiaURLService} from './guardias/guardia-url.service';
+
+
 const APP_ROUTES: Routes = [
   {
     // A D M I N
@@ -38,10 +42,10 @@ const APP_ROUTES: Routes = [
     component: AdminComponent,
     children:[
 
-      { path: 'offers', component: OfertasAdminComponent },
-      { path: 'cars', component: VehiculosAdminComponent },
-      { path: 'car/:id', component: RegistroVehiculosComponent },
-      { path: 'home', component: HomeAdminComponent },
+      { path: 'offers', component: OfertasAdminComponent,canActivate:[GuardiaURLService] },
+      { path: 'cars', component: VehiculosAdminComponent,canActivate:[GuardiaURLService] },
+      { path: 'car/:id', component: RegistroVehiculosComponent,canActivate:[GuardiaURLService] },
+      { path: 'home', component: HomeAdminComponent,canActivate:[GuardiaURLService] },
       { path: '**', pathMatch: 'full', redirectTo: 'home' }
 
     ]
