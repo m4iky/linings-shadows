@@ -45,7 +45,7 @@
        <div class="input-field col s12">
 
           <!-- modelo -->
-         <input id="icon_prefix" name='' type="text" class="validate">
+         <input id="icon_prefix" name='precio' [(ngModel)]='vehiculos.precio' type="text" class="validate">
           <!--  -->
 
          <label for="icon_prefix">Precio</label>
@@ -55,7 +55,7 @@
     <div class="input-field col s12">
 
         <!-- Descripcion -->
-      <textarea id="textarea1" class="materialize-textarea"></textarea>
+      <textarea id="textarea1" name='descripcion' [(ngModel)]='vehiculos.descripcion' class="materialize-textarea"></textarea>
         <!--  -->
 
       <label for="textarea1">Descripcion</label>
