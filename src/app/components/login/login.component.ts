@@ -10,6 +10,7 @@ declare var $
 export class LoginComponent implements OnInit {
 
   login:FormGroup
+
   datosLog:any={
     user:"",
     password:""
@@ -20,7 +21,7 @@ export class LoginComponent implements OnInit {
           $(window).scrollTop(0)
     });
 
-    this.login = new FormGroup({
+    this.login=new FormGroup({
       'user':new FormControl('',Validators.required),
       'password':new FormControl('',Validators.required)
     })

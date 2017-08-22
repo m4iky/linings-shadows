@@ -10,7 +10,7 @@ export class LoginService {
 
   logear(datos){
     this.getUsuario().subscribe(usu=>{
-      
+
     })
   }
 
@@ -19,6 +19,10 @@ export class LoginService {
     return this.http.get(this.url).map(usu=>{
       return usu.json()
     })
+  }
+
+  randomToken(min, max){
+
   }
 
 }
