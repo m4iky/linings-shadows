@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+declare var $
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+    $(document).ready(function(){
+          $(window).scrollTop(0)
+    });
+
+   }
 
   ngOnInit() {
+    $(document).ready(function(){
+          $(window).scrollTop(0)
+    });
   }
 
 }
