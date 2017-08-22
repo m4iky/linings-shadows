@@ -5,7 +5,7 @@ import 'rxjs/Rx';
 
 @Injectable()
 export class VehiculosService {
-
+  url:string='https://optimux-a0924.firebaseio.com/vehiculos.json'
   constructor(private _http: Http) { }
 
 

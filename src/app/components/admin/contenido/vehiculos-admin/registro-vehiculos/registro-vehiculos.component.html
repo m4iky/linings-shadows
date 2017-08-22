@@ -1,3 +1,5 @@
+<div>
+
 <nav class="url #212121 grey darken-4">
   <div class="nav-wrapper">
     <div class="col m12 nave ">
@@ -12,7 +14,7 @@
 
 <div class="base_reg">
 
-   <form class="col s12">
+   <form class="col s12" [formGroup]='vehiculos'>
 
      <div class="left-forms">
 
@@ -20,7 +22,7 @@
        <div class="input-field col s12">
 
         <!-- marca -->
-         <input id="icon_prefix" type="text" class="validate">
+         <input id="icon_prefix" type="text" [(ngModel)]='vehiculos.marca' name='marca' class="validate">
         <!--  -->
 
          <label for="icon_prefix">Marca</label>
@@ -34,7 +36,7 @@
        <div class="input-field col s12">
 
           <!-- modelo -->
-         <input id="icon_prefix" type="text" class="validate">
+         <input id="icon_prefix" type="text"  name='modelo' [(ngModel)]='vehiculos.modelo' class="validate">
           <!--  -->
 
          <label for="icon_prefix">Modelo</label>
@@ -43,7 +45,7 @@
        <div class="input-field col s12">
 
           <!-- modelo -->
-         <input id="icon_prefix" type="text" class="validate">
+         <input id="icon_prefix" name='' type="text" class="validate">
           <!--  -->
 
          <label for="icon_prefix">Precio</label>
@@ -52,7 +54,7 @@
        <div class="col bh m12">
     <div class="input-field col s12">
 
-        <!-- textarea -->
+        <!-- Descripcion -->
       <textarea id="textarea1" class="materialize-textarea"></textarea>
         <!--  -->
 
@@ -67,7 +69,7 @@
 
      </div>
 </div>
-
+<!-- IMAGENES -->
 <div class="right-forms">
 
   <div class="file-field input-field col m12">
@@ -137,5 +139,6 @@
 
 
 
-   </form>
+     </form>
+  </div>
 </div>

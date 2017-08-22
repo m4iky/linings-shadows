@@ -38,6 +38,7 @@ import { RegistroVehiculosComponent } from './components/admin/contenido/vehicul
 
  // S E R V I C I O S
 import {VehiculosService} from './servicios/vehiculos.service';
+import { LoginComponent } from './compenents/login/login.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import {VehiculosService} from './servicios/vehiculos.service';
     OfertasAdminComponent,
     VehiculosAdminComponent,
     HomeAdminComponent,
-    RegistroVehiculosComponent
+    RegistroVehiculosComponent,
+    LoginComponent
   ],
   imports: [
     APP_ROUTING,
