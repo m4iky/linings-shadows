@@ -19,7 +19,8 @@ export class RegistroVehiculosComponent implements OnInit {
     estado: 1,
     url1:'',
     url2:'',
-    url3:''
+    url3:'',
+    url4:''
   }
   imagenes:FirebaseListObservable<any>
   constructor(private db:AngularFireDatabase, private _vehiculosService: VehiculosService) {
@@ -27,7 +28,7 @@ export class RegistroVehiculosComponent implements OnInit {
     this.imagenes= this.db.list('/vehiculos')
    }
    guardar(){
-     this._vehiculosService.registrar(this.vehiculos)
+     this._vehiculosService.guardar(this.vehiculos)
 
     //  let datos= this.vehiculos
     //  let urlfor:string;
