@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
+import {LoginService} from '../../servicios/login.service'
+import {Router} from '@angular/router';
 
 declare var $
 @Component({
@@ -16,7 +18,7 @@ export class LoginComponent implements OnInit {
     password:""
   }
 
-  constructor() {
+  constructor(private _loginService:LoginService, private rn:Router) {
     $(document).ready(function(){
           $(window).scrollTop(0)
     });
@@ -25,6 +27,10 @@ export class LoginComponent implements OnInit {
       'user':new FormControl('',Validators.required),
       'password':new FormControl('',Validators.required)
     })
+
+    if(localStorage.getItem("token")){
+      this.rn.navigate(['/admin'])
+    }
    }
 
   ngOnInit() {
