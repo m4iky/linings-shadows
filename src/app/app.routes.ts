@@ -27,6 +27,10 @@ import { AdminComponent } from './components/admin/admin.component';
         // C H I L D  =>  H O M E
         import {HomeAdminComponent} from './components/admin/contenido/home-admin/home-admin.component';
 
+
+// L O G I N
+import {LoginComponent} from './components/login/login.component';
+
 const APP_ROUTES: Routes = [
   {
     // A D M I N
@@ -44,6 +48,7 @@ const APP_ROUTES: Routes = [
     },
     // ----------
 
+  { path: 'login', component: LoginComponent },
   { path: 'contacts', component: ContactoComponent },
   { path: 'terms', component: CondicionesComponent },
   { path: 'home', component: InicioComponent },
