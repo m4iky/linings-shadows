@@ -8,7 +8,10 @@ import {VehiculosService} from '../../../../../servicios/vehiculos.service';
 })
 export class RegistroVehiculosComponent implements OnInit {
   vehiculos:any={
-    
+    marca: '1',
+    modelo: '2',
+    precio: '3',
+    descripcion: '4',
   }
   constructor() {
 
