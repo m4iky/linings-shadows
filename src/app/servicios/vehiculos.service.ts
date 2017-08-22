@@ -69,10 +69,14 @@ export class VehiculosService {
     alert("Debe seleccionar 4 imagenes.")
   }
 
-
-
   }
   Random(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
+
+
+    mostrarVehiculos(){
+      this.vehiculo=this.db.list('vehiculos')
+    }
+
 }
