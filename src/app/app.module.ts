@@ -36,6 +36,7 @@ import { VehiculosAdminComponent } from './components/admin/contenido/vehiculos-
 import { HomeAdminComponent } from './components/admin/contenido/home-admin/home-admin.component';
 import { RegistroVehiculosComponent } from './components/admin/contenido/vehiculos-admin/registro-vehiculos/registro-vehiculos.component';
 import {FormsModule} from '@angular/forms';
+import {HttpModule} from '@angular/http';
  // S E R V I C I O S
 import {VehiculosService} from './servicios/vehiculos.service';
 import { LoginComponent } from './components/login/login.component';
@@ -74,7 +75,8 @@ import { LoginComponent } from './components/login/login.component';
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
-    FormsModule
+    FormsModule,
+    HttpModule
   ],
   providers: [VehiculosService],
   bootstrap: [AppComponent]
