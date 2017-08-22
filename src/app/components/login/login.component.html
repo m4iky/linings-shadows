@@ -3,7 +3,7 @@
     <div class="col s12 z-depth-6 card-panel">
 
       <!-- formulario -->
-      <form class="login-form">
+      <form class="login-form" (ngSubmit)="logear()" [formGroup]="login">
         <div class="row">
         </div>
         <div class="row">
@@ -11,7 +11,7 @@
           <i class="material-icons prefix">account_circle</i>
 
                 <!-- nombre de usuario -->
-            <input type="text" id="user">
+            <input type="text" id="user" name="user" formControlName="user">
 
 
             <label for="user" data-error="wrong" data-success="right">Nombre de usuario</label>
@@ -22,7 +22,7 @@
             <i class="material-icons prefix">lock_outline</i>
 
             <!-- contra -->
-            <input id="password" type="password">
+            <input id="password" type="password" name="password" formControlName="password">
               <!--  -->
 
             <label for="password">Password</label>
@@ -38,7 +38,7 @@
           <div class="input-field col s12">
 
             <!-- btn -->
-            <a href="#" class="btn waves-effect waves-light col s12 #1976d2 blue darken-2">Login</a>
+            <button type="submit" class="btn waves-effect waves-light col s12 #1976d2 blue darken-2">Login</button>
           </div>
         </div>
 

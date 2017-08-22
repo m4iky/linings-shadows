@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {FormGroup, FormControl, Validators} from '@angular/forms';
+
 declare var $
 @Component({
   selector: 'app-login',
@@ -7,11 +9,22 @@ declare var $
 })
 export class LoginComponent implements OnInit {
 
+  login:FormGroup
+
+  datosLog:any={
+    user:"",
+    password:""
+  }
+
   constructor() {
     $(document).ready(function(){
           $(window).scrollTop(0)
     });
 
+    this.login=new FormGroup({
+      'user':new FormControl('',Validators.required),
+      'password':new FormControl('',Validators.required)
+    })
    }
 
   ngOnInit() {
@@ -20,4 +33,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  logear(){
+    console.log("GG")
+  }
 }

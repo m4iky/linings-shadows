@@ -35,11 +35,12 @@ import { OfertasAdminComponent } from './components/admin/contenido/ofertas-admi
 import { VehiculosAdminComponent } from './components/admin/contenido/vehiculos-admin/vehiculos-admin.component';
 import { HomeAdminComponent } from './components/admin/contenido/home-admin/home-admin.component';
 import { RegistroVehiculosComponent } from './components/admin/contenido/vehiculos-admin/registro-vehiculos/registro-vehiculos.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
  // S E R V I C I O S
 import {VehiculosService} from './servicios/vehiculos.service';
 import { LoginComponent } from './components/login/login.component';
+import {LoginService} from './servicios/login.service';
 
 @NgModule({
   declarations: [
@@ -76,9 +77,10 @@ import { LoginComponent } from './components/login/login.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    ReactiveFormsModule
   ],
-  providers: [VehiculosService],
+  providers: [VehiculosService,LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
