@@ -41,7 +41,7 @@ const APP_ROUTES: Routes = [
     path: 'admin',
     component: AdminComponent,
     children:[
-
+      { path: 'offers/:key', component: OfertasAdminComponent,canActivate:[GuardiaURLService] },
       { path: 'offers', component: OfertasAdminComponent,canActivate:[GuardiaURLService] },
       { path: 'cars', component: VehiculosAdminComponent,canActivate:[GuardiaURLService] },
       { path: 'car/:id', component: RegistroVehiculosComponent,canActivate:[GuardiaURLService] },
@@ -57,6 +57,7 @@ const APP_ROUTES: Routes = [
   { path: 'terms', component: CondicionesComponent },
   { path: 'home', component: InicioComponent },
   { path: 'cars', component: VehiculosComponent },
+    { path: 'cars/:key', component: VehiculosComponent },
   { path: 'offers', component: OfertasComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'cars' }
 ];
