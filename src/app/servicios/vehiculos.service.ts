@@ -17,6 +17,7 @@ export class VehiculosService {
 imagen=[]=[]
 
 
+  items: FirebaseListObservable<any[]>;
   constructor(private _http: Http, private db: AngularFireDatabase,private _Router:Router) {
 
    }
@@ -152,6 +153,17 @@ imagen=[]=[]
     traerDatosEditar(key){
       let vehiculo:FirebaseObjectObservable<any>
     return  vehiculo=this.db.object(`vehiculos/${key}`)
+    }
+
+    oferta(){
+
+        this.vehiculo= this.db.list('vehiculos', {
+        query: {
+          orderByChild: 'estado',
+          equalTo: 2
+        }
+      });
+
     }
 
 }

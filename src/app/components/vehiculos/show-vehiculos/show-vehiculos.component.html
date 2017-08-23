@@ -19,7 +19,7 @@
           </div>
           <div class="card-content">
             <span class="card-title activator grey-text text-darken-4" style="font-size:18px;">{{vehiculo.marca}} {{vehiculo.modelo}} <i class="material-icons right">more_vert</i></span>
-            <p><button class="btn col m12 s12" [ngClass]="{'#d50000 red accent-4 tooltipped':vehiculo.estado==2,'#00c853 green accent-4 tooltipped':vehiculo.estado==1}"  data-position="right" data-delay="50" data-tooltip=" EN OFERTA "><i class="material-icons right">query_builder</i>Comprar ahora</button> <a class="btn #039be5 light-blue darken-1 col m12 s12 center-align" style="font-size:20px;">${{vehiculo.precio}}</a><br><br><br><br></p>
+            <p><button class="btn col m12 s12" [ngClass]="{'#d50000 red accent-4 tooltipped':vehiculo.estado==2,'#00c853 green accent-4 tooltipped':vehiculo.estado==1}"  data-position="right" data-delay="50" data-tooltip=" EN OFERTA "><i class="material-icons right">query_builder</i>Comprar ahora</button> <a class="btn #039be5 light-blue darken-1 col m12 s12 center-align" style="font-size:20px;">{{vehiculo.precio | currency:DOP:true}}</a><br><br><br><br></p>
           </div>
           <div class="card-reveal #212121 grey darken-4">
             <span class="card-title white-text text-darken-4 ">{{vehiculo.marca}} {{vehiculo.modelo}} <i class="material-icons right">close</i></span>

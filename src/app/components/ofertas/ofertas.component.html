@@ -8,8 +8,8 @@
 
     <div class="row">
 
-      <div class="col s12 m6">
-        <div class="card">
+      <div class="col s12 m6" *ngFor="let oferta of this._vehiculos.vehiculo |async" >
+        <div class="card" >
           <div class="card-image">
             <div class="col m12 s12" style="background-image:url(assets/312.jpg); background-size:cover;background-position:center;height:300px;"></div>
 
@@ -20,11 +20,13 @@
 
             <table>
                     <tr><th>Marca : </th></tr>
-                    <tr><td>MERCEDES ML 350 2010</td></tr>
+                    <tr><td>{{oferta.marca}}</td></tr>
                     <tr><th>Modelo : </th></tr>
-                    <tr><td>ML350</td></tr>
+                    <tr><td>{{oferta.modelo}}</td></tr>
                     <tr><th>Descripcion : </th></tr>
-                    <tr><td>Lorem  Ducimus minus unde eligendi in fugit dolorum nulla sequi ex natus. Minima delectus, enim nobis alias dicta! Fugiat deleniti natus enim voluptates!</td></tr>
+                    <tr><td>{{oferta.descripcion}}</td></tr>
+                    <tr><th>Precio oferta: </th></tr>
+
             </table>
 
           </div>
@@ -33,7 +35,7 @@
           </div>
         </div>
       </div>
-
+<!--
       <div class="col s12 m6">
         <div class="card">
           <div class="card-image">
@@ -88,7 +90,7 @@
 
     </div>
 
-
+ -->
 
 
   </div>
