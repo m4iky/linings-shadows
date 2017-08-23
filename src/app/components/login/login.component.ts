@@ -4,6 +4,7 @@ import {LoginService} from '../../servicios/login.service'
 import {Router} from '@angular/router';
 import {Md5} from 'ts-md5/dist/md5';
 
+declare var Materialize
 declare var $
 @Component({
   selector: 'app-login',
@@ -41,7 +42,6 @@ export class LoginComponent implements OnInit {
   logear(){ // funcion que se llama en el submit
     let pass =  Md5.hashStr(this.datosLog.password)
 
-    console.log(this.datosLog, pass)
     this._loginService.logear(this.datosLog, pass)
   }
 }
