@@ -17,6 +17,10 @@ export class RegistroVehiculosComponent implements OnInit {
     precio: '',
     descripcion: '',
     estado: 1,
+    img1:'',
+    img2:'',
+    img3:'',
+    img4:'',
     url1:'',
     url2:'',
     url3:'',
@@ -35,18 +39,23 @@ export class RegistroVehiculosComponent implements OnInit {
         this.editar=true;
           this._vehiculosService.traerDatosEditar(this.parametro).subscribe(x=>{
               this.vehiculos=x
-              console.log(x)
           })
       }
 
     })
     this.imagenes= this.db.list('/vehiculos')
+
+
    }
+
+
    guardar(){
-     if(this.parametro="registrar"){
+     if(this.parametro=="registrar"){
         this._vehiculosService.guardar(this.vehiculos)
+     }else{
+       this._vehiculosService.modificar(this.parametro,this.vehiculos)
      }
-}
+   }
   ngOnInit() {
     this.validar=new FormGroup({
       'marca': new FormControl('',[Validators.required,Validators.pattern("^[a-zA-Z]*$")]),
