@@ -1,21 +1,55 @@
 
 <!-- Modal Structure -->
-<div id="modal1" class="modal modal-fixed-footer">
+<div id="modalOfer" class="modal modal-fixed-footer">
   <div class="modal-content">
 
-Precio de Oferta
+Modificar precio de Oferta
 <hr>
 
-Precio actual:
-<input type="text" disabled name="" value="mierdaaaa">
-precio de Oferta:
-<input type="text"  name="" value="">
-Descripcion de Oferta:
-<input type="text"  name="" value="">
+<form (ngSubmit)="guardar()"  [formGroup]="validar">
+  <table>
+
+      <!-- ///Precio -->
+          <tr>
+            <th>Precio de Oferta :</th>
+          </tr>
+          <tr>
+                <td>
+                  <input type="text" formControlName="precioOfer" [(ngModel)]="oferta.precioOfer" name="descripcionOfer" value="">
+
+                    <div [ngClass]="{'red-text': validar.get('precioOfer').errors?.required && validar.get('precioOfer').touched}"  *ngIf="validar.get('precioOfer').errors?.required && validar.get('precioOfer').touched">
+                      Este campo es requerido
+                    </div>
+                    <div [ngClass]="{'red-text': validar.get('precioOfer').errors?.pattern}"  *ngIf="validar.get('precioOfer').errors?.pattern">
+                      Solo se admiten numeros
+                    </div>
+              </td>
+          </tr>
+          <!-- ///descripcion -->
+          <tr>
+            <th>Descripcion de Oferta: </th>
+          </tr>
+          <tr>
+            <td>
+              <input type="text" formControlName="descripcionOfer" [(ngModel)]="oferta.descripcionOfer" name="precioOfer" value="">
+                <div [ngClass]="{'red-text':validar.get('descripcionOfer').errors?.required && validar.get('descripcionOfer').touched}"  *ngIf="validar.get('descripcionOfer').errors?.required && validar.get('descripcionOfer').touched">
+                  Este campo es requerido
+
+                </div>
+            </td>
+
+          </tr>
+          <!-- Input de enviar -->
+          <tr>
+            <td><button type="submit" name="button" class="btn " [disabled]="!validar.valid">Modificar</button></td>
+          </tr>
+      </table>
+</form>
+
   </div>
   <div class="modal-footer">
       <a class=" modal-close waves-effect waves-green btn-flat btn"> Cerrar</a>
-    <a href="#!" class="modal-action modal-close waves-effect  waves-green btn-flat btn "> Comprar ahora</a>
+
 
   </div>
 </div>

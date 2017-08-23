@@ -15,6 +15,25 @@ export class OfertasService {
 
   eliminarOfertas(key){
     this.Oferta=this.db.object(`vehiculos/${key}`)
-    this.Oferta.update({estado:1})
+    this.Oferta.update({
+        estado:1,
+        descripcionOfer:"",
+        precioOfer:"",
+      })
+  }
+
+  traerOferta(id){
+
+    let Oferta:FirebaseObjectObservable<any>
+      return this.Oferta=this.db.object(`vehiculos/${id}`)
+  }
+
+  modificarOferta(id,objeto){
+    this.Oferta=this.db.object(`vehiculos/${id}`)
+    this.Oferta.update({
+      descripcionOfer:objeto.descripcionOfer,
+      precioOfer:objeto.precioOfer,
+    })
+    alert('se modifico')
   }
 }

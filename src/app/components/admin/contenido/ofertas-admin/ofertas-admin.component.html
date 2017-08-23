@@ -41,6 +41,7 @@
    <th>Modelo</th>
    <th>Posición</th>
    <th>Precio</th>
+   <th>Precio de oferta</th>
 </tr>
 </thead>
 
@@ -52,8 +53,9 @@
  <td *ngIf="oferta.estado == 2">{{oferta.modelo}}</td>
  <td *ngIf="oferta.estado == 2">no existe</td>
  <td *ngIf="oferta.estado == 2">${{oferta.precio}}</td>
+ <td *ngIf="oferta.estado == 2">${{oferta.precioOfer}}</td>
 
-  <td  *ngIf="oferta.estado == 2"><button class="btn btn-floating #0277bd light-blue darken-3 modal-trigger"  href="#modal1"><i class="material-icons">create</i></button></td>
+  <td  *ngIf="oferta.estado == 2"><button class="btn btn-floating #0277bd light-blue darken-3 modal-trigger"  href="#modalOfer" [routerLink]="['/admin','offers',oferta.$key]"><i class="material-icons">create</i></button></td>
   <td  *ngIf="oferta.estado == 2"><button class="btn btn-floating #e53935 red darken-1"><i class="material-icons" (click)="this._Ofers.eliminarOfertas(oferta.$key)">delete</i></button></td>
 </tr>
 
