@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {OfertasService} from '../../../../servicios/ofertas.service'
 declare var $
+
 @Component({
   selector: 'app-ofertas-admin',
   templateUrl: './ofertas-admin.component.html',
