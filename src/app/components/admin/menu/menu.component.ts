@@ -5,8 +5,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-
-  constructor() { }
+usuario:string;
+  constructor() {
+    this.usuario = localStorage.getItem('nombre')
+   }
 
   cerrarSession(){
     localStorage.clear()

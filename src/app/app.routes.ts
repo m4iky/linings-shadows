@@ -33,7 +33,7 @@ import {LoginComponent} from './components/login/login.component';
 
 //G U A R D I A S
 import {GuardiaURLService} from './guardias/guardia-url.service';
-
+import {LoginUrlService} from './guardias/login-url.service';
 
 const APP_ROUTES: Routes = [
   {
@@ -52,7 +52,7 @@ const APP_ROUTES: Routes = [
     },
     // ----------
 
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent, canActivate:[LoginUrlService] },
   { path: 'contacts', component: ContactoComponent },
   { path: 'terms', component: CondicionesComponent },
   { path: 'home', component: InicioComponent },
