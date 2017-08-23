@@ -8,7 +8,7 @@ declare var $;
 })
 export class NavbarComponent implements OnInit {
 estado:boolean = true;
-
+usuario:string;
 // navbar
 
 navbar:string[] = [
@@ -21,11 +21,13 @@ navbar:string[] = [
   'RobertoMotors.com',
 
   // admin
-  'Hylek Narf'
+  ''
 ]
 
 
   constructor() {
+    this.usuario = localStorage.getItem('nombre')
+    this.navbar[6] = localStorage.getItem('nombre')
     // si estamos en la administracion
       if(localStorage.getItem('token')){
         this.estado = false;

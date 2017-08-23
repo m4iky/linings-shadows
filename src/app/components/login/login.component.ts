@@ -2,12 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
 import {LoginService} from '../../servicios/login.service'
 import {Router} from '@angular/router';
+import {Md5} from 'ts-md5/dist/md5';
 
 declare var $
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  providers: [Md5]
 })
 export class LoginComponent implements OnInit {
 
@@ -37,6 +39,9 @@ export class LoginComponent implements OnInit {
   }
 
   logear(){ // funcion que se llama en el submit
-    this._loginService.logear(this.datosLog)
+    let pass =  Md5.hashStr(this.datosLog.password)
+
+    console.log(this.datosLog, pass)
+    this._loginService.logear(this.datosLog, pass)
   }
 }

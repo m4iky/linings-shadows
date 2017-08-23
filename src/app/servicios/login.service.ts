@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import {Http} from '@angular/http';
 import {Router} from '@angular/router';
 import 'rxjs/Rx'
+import {Md5} from 'ts-md5/dist/md5';
+
 declare var $
 @Injectable()
 export class LoginService {
@@ -10,7 +12,7 @@ export class LoginService {
   constructor(private http:Http, private rn:Router) { }
 
   error:boolean=false
-  logear(datos){ /// funcion logear con los parametros para el objeto
+  logear(datos, pass){ /// funcion logear con los parametros para el objeto
     this.getUsuario().subscribe(usu=>{  /// disparador del map
 
       let session:boolean=false;
@@ -20,7 +22,7 @@ export class LoginService {
 
       for(let key in usu){ /// for en la x cantidad de usuarios que llegan
 
-        if(usu[key].usuario == datos.user && usu[key].password==datos.password){ // condicional para verificar si existe el usuario
+        if(usu[key].usuario == datos.user && usu[key].password==pass){ // condicional para verificar si existe el usuario
           session=true /// si existe el usuario el estado de session es true
           tipo=usu[key].tipo //se guarda el tipo de usuario en la variable
           nombre=usu[key].nombre

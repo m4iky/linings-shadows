@@ -11,7 +11,7 @@
           <li><a  [routerLink]="['offers']" routerLinkActive="activado"><i class="material-icons left">alarm</i></a></li>
             <li><a  [routerLink]="['terms']" routerLinkActive="activado"><i class="material-icons left">playlist_add_check</i></a></li>
           <li><a [routerLink]="['contacts']" routerLinkActive="activado"><i class="material-icons left">settings_phone</i></a></li>
-          <li><a [routerLink]="['admin']" routerLinkActive="activado"><i class="material-icons left">account_circle</i>{{ navbar[6] }}</a></li>
+          <li><a [routerLink]="['admin']" routerLinkActive="activado"><i class="material-icons left">account_circle</i>{{usuario | capitalizar}}</a></li>
         </ul>
       </div>
     </nav>
@@ -32,7 +32,7 @@
         <li><a  [routerLink]="['offers']" routerLinkActive="activado"><i class="material-icons left">alarm</i></a></li>
           <li><a  [routerLink]="['terms']" routerLinkActive="activado"><i class="material-icons left">playlist_add_check</i></a></li>
         <li><a [routerLink]="['contacts']" routerLinkActive="activado"><i class="material-icons left">settings_phone</i></a></li>
-          <li><a [routerLink]="['admin']" routerLinkActive="activado"><i class="material-icons left">account_circle</i>{{ navbar[6] }}</a></li>
+          <li><a [routerLink]="['admin']" routerLinkActive="activado"><i class="material-icons left">account_circle</i>{{ usuario | capitalizar }}</a></li>
 
       </ul>
       <ul class="side-nav" id="mobile-demo">
@@ -43,7 +43,7 @@
         <li><a  href="/offers" routerLinkActive="activado"><i class="material-icons left">alarm</i>{{ navbar[2] }}</a></li>
           <li><a  href="/terms" routerLinkActive="activado"><i class="material-icons left">playlist_add_check</i>{{ navbar[3] }}</a></li>
         <li><a href="/contacts" routerLinkActive="activado"><i class="material-icons left">settings_phone</i>{{ navbar[4] }}</a></li>
-          <li><a href="/admin" routerLinkActive="activado"><i class="material-icons left">account_circle</i>{{ navbar[6] }}</a></li>
+          <li><a href="/admin" routerLinkActive="activado"><i class="material-icons left">account_circle</i>{{ usuario | capitalizar }}</a></li>
 
       </ul>
     </div>

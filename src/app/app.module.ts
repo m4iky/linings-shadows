@@ -42,6 +42,8 @@ import {VehiculosService} from './servicios/vehiculos.service';
 import { LoginComponent } from './components/login/login.component';
 import {LoginService} from './servicios/login.service';
 import {GuardiaURLService} from './guardias/guardia-url.service';
+import {LoginUrlService} from './guardias/login-url.service';
+import { CapitalizarPipe } from './pipes/capitalizar.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,7 +70,8 @@ import {GuardiaURLService} from './guardias/guardia-url.service';
     VehiculosAdminComponent,
     HomeAdminComponent,
     RegistroVehiculosComponent,
-    LoginComponent
+    LoginComponent,
+    CapitalizarPipe
   ],
   imports: [
     APP_ROUTING,
@@ -80,7 +83,7 @@ import {GuardiaURLService} from './guardias/guardia-url.service';
     HttpModule,
     ReactiveFormsModule
   ],
-  providers: [VehiculosService,LoginService,GuardiaURLService],
+  providers: [VehiculosService,LoginService,GuardiaURLService, LoginUrlService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
