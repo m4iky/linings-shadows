@@ -118,7 +118,10 @@ export class VehiculosService {
 
   }
 
-
+  eliminar(key){
+    this.vehiculoMod=this.db.object(`/vehiculos/${key}`)
+    this.vehiculoMod.remove()
+  }
   Random(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
   }

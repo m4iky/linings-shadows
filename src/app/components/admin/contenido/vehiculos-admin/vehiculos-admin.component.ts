@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {VehiculosService} from '../../../../servicios/vehiculos.service'
+
+declare var Materialize
 @Component({
   selector: 'app-vehiculos-admin',
   templateUrl: './vehiculos-admin.component.html',
@@ -9,7 +11,7 @@ export class VehiculosAdminComponent implements OnInit {
 
   constructor(private _Vehiculos:VehiculosService) {
     this._Vehiculos.mostrarVehiculos()
-    
+
    }
 
   ngOnInit() {
@@ -17,4 +19,7 @@ export class VehiculosAdminComponent implements OnInit {
 
   }
 
+  eliminar(key){
+      this._Vehiculos.eliminar(key)
+  }
 }
