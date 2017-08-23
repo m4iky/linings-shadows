@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {VehiculosService} from './../../../servicios/vehiculos.service';
 declare var $
 @Component({
   selector: 'app-show-vehiculos',
@@ -7,14 +8,16 @@ declare var $
 })
 export class ShowVehiculosComponent implements OnInit {
 
-  constructor() {
+  constructor(private _mostrarVehiculos:VehiculosService) {
     $(document).ready(function(){
 $('.tooltipped').tooltip({delay: 50});
 });
+
    }
 
-  ngOnInit() {
 
+  ngOnInit() {
+    this._mostrarVehiculos.mostrarVehiculos()
     $(document).ready(function(){
    $('.tooltipped').tooltip({delay: 50});
  });
