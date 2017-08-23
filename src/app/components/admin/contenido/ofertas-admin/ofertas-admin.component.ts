@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {OfertasService} from '../../../../servicios/ofertas.service'
 declare var $
 @Component({
   selector: 'app-ofertas-admin',
@@ -7,13 +8,24 @@ declare var $
 })
 export class OfertasAdminComponent implements OnInit {
 
-    constructor() {
+    constructor(private _Ofers:OfertasService) {
+      this._Ofers.mostrarOfertas()
       this.inicializarAuto()
     }
 
   ngOnInit() {
+    this._Ofers.mostrarOfertas()
     this.inicializarAuto()
+
   }
+
+
+
+
+
+
+
+
 
 
 
