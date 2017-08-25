@@ -15,7 +15,8 @@ export class OfertasVehiculoComponent implements OnInit {
   parametro;
   datos:any={
   precioOfer:'',
-  estado:''
+  estado:'',
+  descripcionOfer:''
 
   }
   constructor(private _Active : ActivatedRoute, private _vehiculosService: VehiculosService) {
@@ -40,8 +41,8 @@ export class OfertasVehiculoComponent implements OnInit {
 
   ngOnInit() {
     this.validar = new FormGroup({
-      'precioOfer' : new FormControl('', [Validators.required, Validators.pattern("[0-9]{1,}")])
-
+      'precioOfer' : new FormControl('', [Validators.required, Validators.pattern("[0-9]{1,}")]),
+      'descripcionOfer' :new FormControl('',[Validators.required])
     })
 
 
