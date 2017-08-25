@@ -38,6 +38,10 @@ navbar:string[] = [
     $(document).ready(function(){
       $(".button-collapse").sideNav();
     })
+
+    //Ofertas == 2
+
+
   }
 
   ngOnInit() {

@@ -23,7 +23,6 @@ export class OfertasService {
   }
 
   traerOferta(id){
-
     let Oferta:FirebaseObjectObservable<any>
       return this.Oferta=this.db.object(`vehiculos/${id}`)
   }
