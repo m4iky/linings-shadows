@@ -165,5 +165,12 @@ imagen=[]=[]
       });
 
     }
+    subirOferta(key, datos){
+      
+      this.vehiculoMod=this.db.object(`/vehiculos/${key}`)
+      this.vehiculoMod.update(datos)
+        Materialize.toast("Oferta agregada correctamente",3000,'#4caf50 green rounded')
+
+    }
 
 }

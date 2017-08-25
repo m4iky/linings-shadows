@@ -1,26 +1,69 @@
 <!-- Modal Structure -->
   <div id="modal1" class="modal">
     <div class="modal-content">
-      <h4>Esta es una ventana Modal</h4>
+      <h4>Nueva Oferta</h4>
     </div>
-<form>
 
   <div>
         <!-- cuerpo -->
+        <div class="container">
+          <form (ngSubmit)="oferta()" [formGroup]="validar">
+
+    <table class='bordered'>
+      <tr>
+        <th>
+          Marca
+        </th>
+
+          <td>
+            {{ datos.marca }}
+          </td>
+      </tr>
+      <tr>
+        <th>
+          Modelo
+        </th>
+
+          <td>
+            {{ datos.modelo }}
+          </td>
+      </tr>
+      <tr>
+        <th>
+          Precio Actual
+        </th>
+
+          <td>
+            {{ datos.precio }}
+          </td>
+      </tr>
+
+    </table>
+
+<div>
+
     <table>
-      <tr>{{datos.marca}}</tr>
-    <tr>MODELO</tr>
-    <tr>PRECIO ACTUAL</tr>
       <tr>
-        <th>Precio Oferta</th>
+        <th>Precio Oferta:</th>
+
+        <td>
+          <input type="text"  formControlName='precioOfer' [(ngModel)]='datos.precioOfer' name="precioOfer" value="">
+
+          <div [ngClass]="{'red-text': validar.get('precioOfer').errors?.required && validar.get('precioOfer').touched}"  *ngIf="validar.get('precioOfer').errors?.required && validar.get('precioOfer').touched">
+            Este campo es requerido
+          </div>
+          <div [ngClass]="{'red-text': validar.get('precioOfer').errors?.pattern}"  *ngIf="validar.get('precioOfer').errors?.pattern">
+            Solo se admiten numeros
+          </div>
+        </td>
       </tr>
-      <tr>
-        <th><input type="text"  name="descripcionOfer" value=""></th>
-      </tr>
-      </table>
-      </div>
+  </table>
+</div>
     </form>
+  </div>
+  </div>
     <div class="modal-footer">
-      <a class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+      <a class="modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+      <button class="modal-action modal-close waves-effect waves-green btn-flat" (click)='oferta()' [disabled]="!validar.valid" type='submit'>Guardar</button>
     </div>
   </div>

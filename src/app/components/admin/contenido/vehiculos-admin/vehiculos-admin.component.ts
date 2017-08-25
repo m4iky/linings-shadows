@@ -28,10 +28,5 @@ export class VehiculosAdminComponent implements OnInit {
 
     }
   }
-  mostrar(key){
-this._Vehiculos.traerDatosEditar(key).subscribe(data=>{
-  console.log(data)
-})
-    console.log(key)
-  }
+
 }
