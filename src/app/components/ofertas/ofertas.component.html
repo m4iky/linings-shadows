@@ -11,9 +11,8 @@
       <div class="col s12 m6" *ngFor="let oferta of this._vehiculos.vehiculo |async" >
         <div class="card" >
           <div class="card-image">
-            <div class="col m12 s12" style="background-image:url(assets/312.jpg); background-size:cover;background-position:center;height:300px;"></div>
 
-
+            <img [src]="oferta.url1" alt="">
           </div>
           <div class="card-content">
 
@@ -98,4 +97,5 @@
 
 
 
+</div>
 </div>
