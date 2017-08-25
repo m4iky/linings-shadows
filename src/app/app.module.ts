@@ -45,7 +45,8 @@ import {GuardiaURLService} from './guardias/guardia-url.service';
 import {LoginUrlService} from './guardias/login-url.service';
 import { CapitalizarPipe } from './pipes/capitalizar.pipe';
 import {OfertasService} from './servicios/ofertas.service';
-import { ModalOfertaComponent } from './components/admin/contenido/ofertas-admin/modal-oferta/modal-oferta.component'
+import { ModalOfertaComponent } from './components/admin/contenido/ofertas-admin/modal-oferta/modal-oferta.component';
+import { OfertasVehiculoComponent } from './components/admin/contenido/vehiculos-admin/ofertas-vehiculo/ofertas-vehiculo.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -74,7 +75,8 @@ import { ModalOfertaComponent } from './components/admin/contenido/ofertas-admin
     RegistroVehiculosComponent,
     LoginComponent,
     CapitalizarPipe,
-    ModalOfertaComponent
+    ModalOfertaComponent,
+    OfertasVehiculoComponent
   ],
   imports: [
     APP_ROUTING,

@@ -45,6 +45,8 @@ const APP_ROUTES: Routes = [
       { path: 'offers', component: OfertasAdminComponent,canActivate:[GuardiaURLService] },
       { path: 'cars', component: VehiculosAdminComponent,canActivate:[GuardiaURLService] },
       { path: 'car/:id', component: RegistroVehiculosComponent,canActivate:[GuardiaURLService] },
+      { path: 'cars/:id', component: VehiculosAdminComponent,canActivate:[GuardiaURLService] },
+
       { path: 'home', component: HomeAdminComponent,canActivate:[GuardiaURLService] },
       { path: '**', pathMatch: 'full', redirectTo: 'home' }
 
