@@ -139,6 +139,11 @@ resetImg=[]=[]
       // let storage = firebase.storage().ref(`vehiculos/`+ok)
       // storage.delete().then(function() {
       // })
+
+
+      let storage = firebase.storage().ref(`vehiculos/`+ok)
+      storage.delete().then(function() {
+      })
       if(g==4){
 
         this.imagen = this.resetImg
