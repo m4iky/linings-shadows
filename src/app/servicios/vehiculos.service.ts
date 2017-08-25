@@ -138,10 +138,12 @@ imagen=[]=[]
       let storage = firebase.storage().ref(`vehiculos/`+ok)
       storage.delete().then(function() {
       })
-
+      if(g==4){
+        this.vehiculoMod=this.db.object(`/vehiculos/${key}`)
+        this.vehiculoMod.remove()
+      }
     }
-    this.vehiculoMod=this.db.object(`/vehiculos/${key}`)
-    this.vehiculoMod.remove()
+
   }
   Random(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
