@@ -20,7 +20,6 @@ export class VehiculosAdminComponent implements OnInit {
   }
 
   eliminar(key){
-
     if (confirm('¿Desea eliminar este vehiculo?')) {
       this._Vehiculos.eliminar(key)
       Materialize.toast("Vehiculo eliminado correctamente", 3000,'#d50000 red accent-4 rounded')
