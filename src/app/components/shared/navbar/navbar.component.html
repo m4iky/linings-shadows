@@ -8,7 +8,7 @@
           <!-- botones flex del menu en pantallas grandes -->
           <li><a [routerLink]="['home']" routerLinkActive="activado"><i class="material-icons left">home</i></a></li>
           <li><a [routerLink]="['cars']" routerLinkActive="activado"><i class="material-icons left">directions_car</i></a></li>
-          <li><a  [routerLink]="['offers']" routerLinkActive="activado"><i class="material-icons left">alarm</i></a></li>
+          <li *ngIf="estadoOfertas"><a  [routerLink]="['offers']" routerLinkActive="activado"><i class="material-icons left">alarm</i></a></li>
             <li><a  [routerLink]="['terms']" routerLinkActive="activado"><i class="material-icons left">playlist_add_check</i></a></li>
           <li><a [routerLink]="['contacts']" routerLinkActive="activado"><i class="material-icons left">settings_phone</i></a></li>
           <li><a [routerLink]="['admin']" routerLinkActive="activado"><i class="material-icons left">account_circle</i>{{usuario | capitalizar}}</a></li>
@@ -29,9 +29,8 @@
         <!-- botones flex del menu en pantallas grandes -->
         <li><a [routerLink]="['home']" routerLinkActive="activado"><i class="material-icons left">home</i></a> </li>
         <li><a [routerLink]="['cars']" routerLinkActive="activado"><i class="material-icons left">directions_car</i></a></li>
-        <li><a  [routerLink]="['offers']" routerLinkActive="activado"><i class="material-icons left">alarm</i></a></li>
+        <li *ngIf="estadoOfertas"><a  [routerLink]="['offers']" routerLinkActive="activado"><i class="material-icons left">alarm</i></a></li>
           <li><a  [routerLink]="['terms']" routerLinkActive="activado"><i class="material-icons left">playlist_add_check</i></a></li>
-        <li><a [routerLink]="['contacts']" routerLinkActive="activado"><i class="material-icons left">settings_phone</i></a></li>
           <li><a [routerLink]="['admin']" routerLinkActive="activado"><i class="material-icons left">account_circle</i>{{ usuario | capitalizar }}</a></li>
 
       </ul>
@@ -40,9 +39,8 @@
         <!-- botones flex del menu en dispositivos mobiles -->
         <li><a href="/home" routerLinkActive="activado"><i class="material-icons left">home</i>{{ navbar[0] }}</a> </li>
         <li><a href="/cars" routerLinkActive="activado"><i class="material-icons left">directions_car</i>{{ navbar[1] }}</a></li>
-        <li><a  href="/offers" routerLinkActive="activado"><i class="material-icons left">alarm</i>{{ navbar[2] }}</a></li>
+        <li *ngIf="estadoOfertas"><a  href="/offers" routerLinkActive="activado"><i class="material-icons left">alarm</i>{{ navbar[2] }}</a></li>
           <li><a  href="/terms" routerLinkActive="activado"><i class="material-icons left">playlist_add_check</i>{{ navbar[3] }}</a></li>
-        <li><a href="/contacts" routerLinkActive="activado"><i class="material-icons left">settings_phone</i>{{ navbar[4] }}</a></li>
           <li><a href="/admin" routerLinkActive="activado"><i class="material-icons left">account_circle</i>{{ usuario | capitalizar }}</a></li>
 
       </ul>
@@ -63,7 +61,7 @@
           <!-- botones flex del menu en pantallas grandes -->
           <li><a [routerLink]="['home']" routerLinkActive="activado"><i class="material-icons left">home</i> {{ navbar[0] }} </a> </li>
           <li><a [routerLink]="['cars']" routerLinkActive="activado"><i class="material-icons left">directions_car</i> {{ navbar[1] }} </a></li>
-          <li><a  [routerLink]="['offers']" routerLinkActive="activado"><i class="material-icons left">playlist_add_check</i> {{ navbar[2] }} </a></li>
+          <li *ngIf="estadoOfertas"><a  [routerLink]="['offers']" routerLinkActive="activado"><i class="material-icons left">playlist_add_check</i> {{ navbar[2] }} </a></li>
             <li><a  [routerLink]="['terms']" routerLinkActive="activado"><i class="material-icons left">playlist_add_check</i> {{ navbar[3] }} </a></li>
           <li><a [routerLink]="['contacts']" routerLinkActive="activado"><i class="material-icons left">settings_phone</i> {{ navbar[4] }} </a></li>
         </ul>
@@ -83,7 +81,7 @@
         <!-- botones flex del menu en pantallas grandes -->
         <li><a [routerLink]="['home']" routerLinkActive="activado"><i class="material-icons left">home</i> {{ navbar[0] }} </a> </li>
         <li><a [routerLink]="['cars']" routerLinkActive="activado"><i class="material-icons left">directions_car</i> {{ navbar[1] }} </a></li>
-        <li><a  [routerLink]="['offers']" routerLinkActive="activado"><i class="material-icons left">playlist_add_check</i> {{ navbar[2] }} </a></li>
+        <li *ngIf="estadoOfertas"><a  [routerLink]="['offers']" routerLinkActive="activado"><i class="material-icons left">playlist_add_check</i> {{ navbar[2] }} </a></li>
           <li><a  [routerLink]="['terms']" routerLinkActive="activado"><i class="material-icons left">playlist_add_check</i> {{ navbar[3] }} </a></li>
         <li><a [routerLink]="['contacts']" routerLinkActive="activado"><i class="material-icons left">settings_phone</i> {{ navbar[4] }} </a></li>
 
@@ -93,7 +91,7 @@
         <!-- botones flex del menu en dispositivos mobiles -->
         <li><a href="/home" ><i class="material-icons left">home</i> {{ navbar[0] }} </a> </li>
         <li><a href="/cars" ><i class="material-icons left">directions_car</i> {{ navbar[1] }} </a></li>
-        <li><a href="/offers" ><i class="material-icons left">playlist_add_check</i> {{ navbar[2] }} </a></li>
+        <li *ngIf="estadoOfertas"><a href="/offers" ><i class="material-icons left">playlist_add_check</i> {{ navbar[2] }} </a></li>
           <li><a href="/terms" ><i class="material-icons left">playlist_add_check</i> {{ navbar[3] }} </a></li>
         <li><a href="/contacts" ><i class="material-icons left">settings_phone</i> {{ navbar[4] }} </a></li>
 

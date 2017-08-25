@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireDatabase, FirebaseListObservable,FirebaseObjectObservable } from 'angularfire2/database';
+
 declare var $;
 
 @Component({
@@ -7,6 +9,9 @@ declare var $;
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+
+Oferta:FirebaseObjectObservable<any>
+
 estado:boolean = true;
 usuario:string;
 // navbar
@@ -24,8 +29,10 @@ navbar:string[] = [
   ''
 ]
 
+estadoOfertas:boolean=false
 
-  constructor() {
+
+  constructor(db:AngularFireDatabase) {
     this.usuario = localStorage.getItem('nombre')
     this.navbar[6] = localStorage.getItem('nombre')
     // si estamos en la administracion
@@ -40,7 +47,16 @@ navbar:string[] = [
     })
 
     //Ofertas == 2
-
+    const queryObservable = db.list('/vehiculos', {
+  query: {
+    orderByChild: 'estado',
+    equalTo: 2
+  }
+}).subscribe(gg=>{
+  if(gg.length>0){
+    this.estadoOfertas=true
+  }
+});
 
   }
 

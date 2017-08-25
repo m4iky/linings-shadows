@@ -16,6 +16,7 @@ export class OfertasComponent implements OnInit {
 
   ngOnInit() {
         this._vehiculos.oferta()
+  
 
   }
 
