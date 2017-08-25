@@ -23,7 +23,9 @@ validar:FormGroup;
 
 
 Contacto(){
-  setTimeout(this.Actualizar(),10000)
+  setTimeout(()=>{
+    this.Actualizar()
+  },2000)
 }
 
   Actualizar(){
