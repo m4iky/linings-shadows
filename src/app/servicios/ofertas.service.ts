@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable,FirebaseObjectObservable } from 'angularfire2/database';
 import 'rxjs/Rx';
+declare var Materialize
 @Injectable()
 export class OfertasService {
 
@@ -33,7 +34,7 @@ export class OfertasService {
       descripcionOfer:objeto.descripcionOfer,
       precioOfer:objeto.precioOfer,
     })
-    alert('se modifico')
+    Materialize.toast("La oferta se modifico  correctamente",3000,'#4caf50 green rounded')
   }
 
 }

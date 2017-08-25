@@ -14,7 +14,7 @@ export class VehiculosService {
   vehiculos:FirebaseObjectObservable<any[]>;
   url:string='https://optimux-a0924.firebaseio.com/vehiculos.json';
 
-imagen:any[]=[]
+
 resetImg=[]=[]
 
   items: FirebaseListObservable<any[]>;
@@ -124,35 +124,41 @@ resetImg=[]=[]
   }
 
   eliminar(key){
-    console.log(key)
+    let imagen:any[]=[]
     this.traerDatosEditar(key).subscribe(img=>{
-      this.imagen.push(img)
+     imagen.push(img)
+
     })
 
 
 
     for(let g = 1; g<=4; g++){
-      let gg = this.imagen[0]
+      let gg =imagen[0]
       let ok= eval("gg.img"+g)
-        console.log(gg)
-        console.log(ok)
+
+
       // let storage = firebase.storage().ref(`vehiculos/`+ok)
       // storage.delete().then(function() {
       // })
 
-
-      let storage = firebase.storage().ref(`vehiculos/`+ok)
+      let storage = firebase.storage().ref(`vehiculos/${ok}`)
       storage.delete().then(function() {
       })
+
+
       if(g==4){
 
-        this.imagen = this.resetImg
+        imagen = this.resetImg
         // this.vehiculoMod=this.db.object(`/vehiculos/${key}`)
         // this.vehiculoMod.remove()
       }
     }
 
-  }
+
+
+    this.vehiculoMod=this.db.object(`/vehiculos/${key}`)
+    this.vehiculoMod.remove()
+    }
   Random(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
