@@ -190,4 +190,39 @@ resetImg=[]=[]
 
     }
 
+    buscadorTiempoReal(objeto){
+      if(objeto==""){
+        this.mostrarVehiculos()
+      }else{
+
+      let carro=objeto.toLowerCase()
+      let tempcarro:any[]=[];
+      this.vehiculo= this.db.list('vehiculos', {
+      query: {
+        orderByChild: 'marca'
+
+      }
+    });
+        this.vehiculo.subscribe(res=>{
+             for ( let i of res){
+               let vehiculo=i.marca.toLowerCase()
+
+               if(vehiculo.indexOf(carro)>=0){
+
+                 this.vehiculo= this.db.list('vehiculos', {
+                 query: {
+                   orderByChild: 'marca',
+                   equalTo:i.marca
+                 }
+               });
+
+               }
+             }
+
+        })
+
+    }
+
+    }
+
 }

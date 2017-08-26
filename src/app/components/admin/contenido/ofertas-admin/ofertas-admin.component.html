@@ -10,16 +10,16 @@
 <!-- contenido de ofertas -->
 
 <!-- buscador de vehiculos  -->
-<div class="conte_busc">
+<div  class="conte_busc">
 
-<div class="row abs">
+<div (click)="encontrar(buscador.value)" class="row abs">
   <div class="col s12">
-    <div class="row">
-      <div class="input-field col s12">
+    <div   class="row">
+      <div  class="input-field col s12">
         <i class="material-icons prefix">search</i>
 
         <!-- input para buscarlas ofertas -->
-        <input type="text" id="autocomplete-input" class="autocomplete">
+        <input type="text"  #buscador   (keyup)="encontrar(buscador.value)"  id="autocomplete-input" class="autocomplete">
         <!--  -->
 
         <label for="autocomplete-input">Buscar ofertas</label>

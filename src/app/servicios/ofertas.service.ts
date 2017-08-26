@@ -36,5 +36,40 @@ export class OfertasService {
     })
     Materialize.toast("La oferta se modifico  correctamente",3000,'#4caf50 green rounded')
   }
+buscador(objeto){
+  if(objeto==""){
+    this.mostrarOfertas()
+  }else{
+
+  let carro=objeto.toLowerCase()
+  this.Ofertas= this.db.list('vehiculos', {
+  query: {
+    orderByChild: 'estado',
+    equalTo:2
+
+  }
+});
+    this.Ofertas.subscribe(res=>{
+         for ( let i of res){
+           let vehiculo=i.marca.toLowerCase()
+           if(vehiculo.indexOf(carro)>=0){
+
+             this.Ofertas= this.db.list('vehiculos', {
+             query: {
+               orderByChild: 'marca',
+               equalTo:i.marca
+             }
+           });
+
+           }
+         }
+
+    })
+
+}
+
+}
+
+
 
 }
