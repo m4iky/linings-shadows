@@ -47,6 +47,7 @@ import { CapitalizarPipe } from './pipes/capitalizar.pipe';
 import {OfertasService} from './servicios/ofertas.service';
 import { ModalOfertaComponent } from './components/admin/contenido/ofertas-admin/modal-oferta/modal-oferta.component';
 import { OfertasVehiculoComponent } from './components/admin/contenido/vehiculos-admin/ofertas-vehiculo/ofertas-vehiculo.component';
+import { ModalComprasComponent } from './components/vehiculos/show-vehiculos/modal-compras/modal-compras.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -77,6 +78,7 @@ import { OfertasVehiculoComponent } from './components/admin/contenido/vehiculos
     CapitalizarPipe,
     ModalOfertaComponent,
     OfertasVehiculoComponent,
+    ModalComprasComponent,
   ],
   imports: [
     APP_ROUTING,

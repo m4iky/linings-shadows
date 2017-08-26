@@ -1,0 +1,74 @@
+
+<!-- Modal Structure -->
+<div id="modalCompras" class="modal modal-fixed-footer">
+  <div class="modal-content">
+
+Comprar Vehiculo
+<hr>
+
+<div class="row">
+<form class="col s12 formulario1" (ngSubmit)="Compras()" id="myform"  onsubmit="emailjs.sendForm('default_service', 'compra_de_carro', this); return false;" method="post" [formGroup]="validar" >
+<div class="row">
+  <div class="input-field col s12 m12 l10">
+    <i class="material-icons prefix">account_circle</i>
+    <input id="icon_prefix" type="text" [(ngModel)]="datosCompra.from_name" formControlName="from_name" name="from_name" class="validate datos">
+    <label for="icon_prefix">Nombre</label>
+    <div class="center-align" [ngClass]="{'red-text': validar.get('from_name').errors?.required && validar.get('from_name').touched}"  *ngIf="validar.get('from_name').errors?.required && validar.get('from_name').touched">
+      Este campo es requerido
+    </div>
+  </div>
+
+  <div class="input-field col s12 m12 l10">
+    <i class="material-icons prefix">phone</i>
+    <input id="icon_telephone" type="tel" [(ngModel)]="datosCompra.numero" formControlName="numero" name="numero" class="validate datos">
+    <label for="icon_telephone">Telefono</label>
+    <div class="center-align" [ngClass]="{'red-text': validar.get('numero').errors?.required && validar.get('numero').touched}"  *ngIf="validar.get('numero').errors?.required && validar.get('numero').touched">
+      Este campo es requerido
+    </div>
+    <div class="center-align" [ngClass]="{'red-text': validar.get('numero').errors?.pattern}"  *ngIf="validar.get('numero').errors?.pattern">
+      Solo se admiten numeros
+    </div>
+  </div>
+
+  <div class="input-field col s12 m12 l10">
+      <i class="material-icons prefix">mail</i>
+    <input id="email" type="text" [(ngModel)]="datosCompra.email_address" formControlName="email_address" name="email_address" value=""  class=" datos">
+    <label for="email">Correo electronico</label>
+    <div class="center-align" [ngClass]="{'red-text': validar.get('email_address').errors?.required && validar.get('email_address').touched}"  *ngIf="validar.get('email_address').errors?.required && validar.get('email_address').dirty">
+      Este campo es requerido
+    </div>
+    <div class="center-align" [ngClass]="{'red-text': validar.get('email_address').errors?.pattern && validar.get('email_address').touched}"  *ngIf="validar.get('email_address').errors?.pattern && validar.get('email_address').touched">
+      Correo invalido
+    </div>
+
+  </div>
+
+
+
+  <div class="input-field col s12 m12 l10 texta">
+    <i class="material-icons prefix">mode_comment</i>
+    <textarea id="icon_prefix2" class="materialize-textarea" name="message_html" value="
+    La marca del vehiculo es: <b>{{compra.marca}}</b> <br>
+    El modelo del vehiculo es: <b>{{compra.modelo}}</b> <br>
+    La posicion del vehiculo es: <b>{{compra.posicion}}</b>
+
+    " class="datos"></textarea>
+    <label for="icon_prefix2">Mensaje</label>
+  </div>
+
+
+
+</div>
+<button class="btn waves-effect waves-light #1e88e5 blue darken-1
+" type="submit" title="Llene todos los campos para activar el boton" [disabled]="!validar.valid" >Enviar
+<i class="material-icons right">send</i>
+</button>
+</form>
+</div>
+
+  </div>
+  <div class="modal-footer">
+      <a class=" modal-close waves-effect waves-green btn-flat btn"> Cerrar</a>
+
+  </div>
+</div>

@@ -25,16 +25,16 @@ $('.modal').modal();
   ngOnInit() {
 
     $(document).ready(function(){
-    $('.materialboxed').materialbox();
-  });
+      $('.materialboxed').materialbox();
+    });
 
-    $(document).ready(function(){
-    $('ul.tabs').tabs();
-  });
+      $(document).ready(function(){
+      $('ul.tabs').tabs();
+    });
 
 
-   // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
-   $('.modal').modal();
+     // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+     $('.modal').modal();
 
   }
 

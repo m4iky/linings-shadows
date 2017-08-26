@@ -24,9 +24,12 @@
           </div>
           <div class="card-content">
 
+
             <span class="card-title activator grey-text text-darken-4" style="font-size:18px;">{{vehiculo.marca}}  {{vehiculo.modelo}} <i class="material-icons right">more_vert</i></span>
-            <p *ngIf="vehiculo.estado==2"><button class="btn col m12 s12" [ngClass]="{'#d50000 red accent-4':vehiculo.estado==2}" ><i class="material-icons right">query_builder</i>Comprar ahora</button><a class="btn #039be5 #212121 grey darken-4 col m12 s12 center-align " style="font-size:20px;"><del>{{vehiculo.precio | currency:DOP:true}}</del> - {{vehiculo.precioOfer | currency:DOP:true}}</a><span style="text-align:center;display:block;font-weight:bold;">{{vehiculo.descripcionOfer}}</span>
-            <p *ngIf="vehiculo.estado==1"><button class="btn col m12 s12" [ngClass]="{'#01579b light-blue darken-4':vehiculo.estado==1}" ><i class="material-icons right">query_builder</i>Comprar ahora</button><a class="btn #212121 grey darken-4 col m12 s12 center-align" style="font-size:20px;">{{vehiculo.precio | currency:DOP:true}}</a><br><br><br><br></p>
+            <p *ngIf="vehiculo.estado==2"><button  [routerLink]="['/cars',vehiculo.$key]" class="btn col m12 s12 btn modal-trigger"  href="#modalCompras" [ngClass]="{'#d50000 red accent-4':vehiculo.estado==2}"><i class="material-icons right">query_builder</i>Comprar ahora</button><a class="btn #039be5 #212121 grey darken-4 col m12 s12 center-align " style="font-size:20px;"><del>{{vehiculo.precio | currency:DOP:true}}</del> - {{vehiculo.precioOfer | currency:DOP:true}}</a>
+
+            <span style="text-align:center;display:block;font-weight:bold;">{{vehiculo.descripcionOfer}}</span>
+            <p *ngIf="vehiculo.estado==1"><button  [routerLink]="['/cars',vehiculo.$key]" class="btn col m12 s12 btn modal-trigger"  href="#modalCompras" [ngClass]="{'#01579b light-blue darken-4':vehiculo.estado==1}"><i class="material-icons right">query_builder</i>Comprar ahora</button><a class="btn #212121 grey darken-4 col m12 s12 center-align" style="font-size:20px;">{{vehiculo.precio | currency:DOP:true}}</a><br><br><br><br></p>
 
         </div>
           <div class="card-reveal #212121 grey darken-4"  style="z-index:80!important;">
@@ -203,6 +206,6 @@
   <!--  -->
 
 <app-show-vehiculo></app-show-vehiculo>
-
+<app-modal-compras></app-modal-compras>
 
 </div>
