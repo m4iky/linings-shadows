@@ -11,41 +11,87 @@
     <div class="formulario">
 
       <div class="row">
-    <form class="col s12 formulario1">
+    <form class="col s12 formulario1" (ngSubmit)="Contacto()" id="myform" onsubmit="emailjs.sendForm('default_service', 'email_template_example', this); return false;" method="post" [formGroup]="validar">
       <div class="row">
         <div class="input-field col s12 m12 l10">
           <i class="material-icons prefix">account_circle</i>
-          <input id="icon_prefix" type="text" class="validate">
+          <input id="icon_prefix" type="text" [(ngModel)]="contac.from_name"  formControlName="from_name"  name="from_name" class="validate datos">
           <label for="icon_prefix">Nombre</label>
+          <div class="center-align" [ngClass]="{'red-text': validar.get('from_name').errors?.required && validar.get('from_name').touched}"  *ngIf="validar.get('from_name').errors?.required && validar.get('from_name').touched">
+            Este campo es requerido
+          </div>
         </div>
+
         <div class="input-field col s12 m12 l10">
           <i class="material-icons prefix">phone</i>
-          <input id="icon_telephone" type="tel" class="validate">
+          <input id="icon_telephone" type="tel" [(ngModel)]="contac.numero"  formControlName="numero"  name="numero" class="validate datos">
           <label for="icon_telephone">Telefono</label>
+          <div class="center-align" [ngClass]="{'red-text': validar.get('numero').errors?.required && validar.get('numero').touched}"  *ngIf="validar.get('numero').errors?.required && validar.get('numero').touched">
+            Este campo es requerido
+          </div>
+          <div class="center-align" [ngClass]="{'red-text': validar.get('numero').errors?.pattern}"  *ngIf="validar.get('numero').errors?.pattern">
+            Solo se admiten numeros 
+          </div>
         </div>
+
         <div class="input-field col s12 m12 l10">
             <i class="material-icons prefix">mail</i>
-          <input id="email" type="email" class="validate">
-          <label for="email" data-error="Correo-invalido" data-success="Correo-valido">Correo electronico</label>
+          <input id="email" type="text" [(ngModel)]="contac.email_address" formControlName="email_address" name="email_address"  class=" datos">
+          <label for="email">Correo electronico</label>
+          <div class="center-align" [ngClass]="{'red-text': validar.get('email_address').errors?.required && validar.get('email_address').touched}"  *ngIf="validar.get('email_address').errors?.required && validar.get('email_address').touched">
+            Este campo es requerido
+          </div>
+          <div class="center-align" [ngClass]="{'red-text': validar.get('email_address').errors?.pattern && validar.get('email_address').touched}"  *ngIf="validar.get('email_address').errors?.pattern && validar.get('email_address').touched">
+            Correo invalido
+          </div>
         </div>
+
         <div class="input-field col s12 m12 l10">
           <i class="material-icons prefix">mode_edit</i>
-          <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+          <textarea id="icon_prefix2" [(ngModel)]="contac.asunto" name="asunto" formControlName="asunto" class="materialize-textarea" class="datos"></textarea>
           <label for="icon_prefix2">Asunto</label>
+          <div class="center-align" [ngClass]="{'red-text': validar.get('asunto').errors?.required && validar.get('asunto').touched}"  *ngIf="validar.get('asunto').errors?.required && validar.get('asunto').touched">
+            Este campo es requerido
+          </div>
         </div>
+
         <div class="input-field col s12 m12 l10">
           <i class="material-icons prefix">mode_comment</i>
-          <textarea id="icon_prefix2" class="materialize-textarea "></textarea>
+          <textarea id="icon_prefix2" class="materialize-textarea" [(ngModel)]="contac.message_html" name="message_html" class="datos" formControlName="message_html"></textarea>
           <label for="icon_prefix2">Mensaje</label>
+          <div class="center-align" [ngClass]="{'red-text': validar.get('message_html').errors?.required && validar.get('message_html').touched}"  *ngIf="validar.get('message_html').errors?.required && validar.get('message_html').touched">
+            Este campo es requerido
+          </div>
         </div>
 
       </div>
       <button class="btn waves-effect waves-light #1e88e5 blue darken-1
-" type="submit" name="action">Enviar
+      " type="submit" title="Llene todos los campos para activar el boton" [disabled]="!validar.valid" >Enviar
     <i class="material-icons right">send</i>
   </button>
     </form>
   </div>
+
+
+<!--/////////////////////////////////////////  -->
+
+<!-- <form id="myform" onsubmit="emailjs.sendForm('default_service', 'email_template_example', this); return false;" method="post">
+<label>from_name</label>
+<input type="text" name="from_name" />
+<label>email_address</label>
+<input type="text" name="email_address" />
+<label>asunto</label>
+<input type="text" name="asunto" />
+<label>numero</label>
+<input type="text" name="numero" />
+<label>message_html</label>
+<input type="text" name="message_html" />
+<br><br>
+<button>
+Send
+</button>
+</form> -->
+
 
     </div>
 </div>
