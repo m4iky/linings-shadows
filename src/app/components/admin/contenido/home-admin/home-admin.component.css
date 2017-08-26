@@ -13,9 +13,21 @@ nav{
   border-radius:0;
 }
 
+.positions{
 
+  width: 95%;
+  margin: auto;
+  overflow: auto;
+  height: 100%;
+}
 
-
+.selected{
+background: rgb(185, 247, 255)!important;
+}
+.select:hover{
+    background: rgb(185, 247, 255)!important;
+    cursor: pointer;
+}
 @media (max-width:700px){
   .cont{
     width: 100%!important;

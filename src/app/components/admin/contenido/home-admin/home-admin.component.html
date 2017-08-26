@@ -2,12 +2,69 @@
   <div class="nav-wrapper">
     <div class="col m12 nave ">
 
-      <a href="#!" class="breadcrumb">Admin</a>
+    <a [routerLink]="['/admin','home']"  class="breadcrumb">Admin</a>
 
     </div>
   </div>
 </nav>
 
-<p>
-  home-admin works!
-</p>
+<div class="positions">
+<table class="striped">
+<thead>
+<tr>
+   <th>Imagen</th>
+ <th>Marca</th>
+ <th>Modelo</th>
+
+ <th>Precio</th>
+ <th>Precio de oferta</th>
+</tr>
+</thead>
+
+<tbody>
+
+  <tr class="select">
+  <td><img src="assets/312.jpg" style="height:70px;" alt=""></td>
+   <td>asdsa</td>
+   <td>asdsad</td>
+   <td>asdasd</td>
+   <td>asdsad</td>
+    <td>
+      <button class="btn" disabled><i class="material-icons">keyboard_arrow_up</i></button><br><br>
+      <button class="btn" disabled><i class="material-icons">keyboard_arrow_down</i></button>
+    </td>
+
+  </tr>
+
+  <tr class="select selected">
+  <td><img src="assets/312.jpg" style="height:70px;" alt=""></td>
+   <td>asdsa</td>
+   <td>asdsad</td>
+   <td>asdasd</td>
+   <td>asdsad</td>
+    <td>
+      <button class="btn"><i class="material-icons">keyboard_arrow_up</i></button><br><br>
+      <button class="btn"><i class="material-icons">keyboard_arrow_down</i></button>
+    </td>
+
+  </tr>
+
+
+  <tr class="select ">
+  <td><img src="assets/312.jpg" style="height:70px;" alt=""></td>
+   <td>asdsa</td>
+   <td>asdsad</td>
+   <td>asdasd</td>
+   <td>asdsad</td>
+    <td>
+      <button class="btn" disabled><i class="material-icons">keyboard_arrow_up</i></button><br><br>
+      <button class="btn" disabled><i class="material-icons">keyboard_arrow_down</i></button>
+    </td>
+
+  </tr>
+
+
+
+  </tbody>
+  </table>
+</div>
