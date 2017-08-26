@@ -16,7 +16,7 @@ export class AdminComponent implements OnInit {
     if(localStorage.getItem('token')){
       $(document).ready(function(){
         let h = $(window).height() - 106
-        $('.row > div').css('height',h+'px')
+        $('.base_pr > div').css('height',h+'px')
       })
     }
   }
@@ -29,7 +29,7 @@ $('.collapsible').collapsible();
     if(localStorage.getItem('token')){
       $(document).ready(function(){
         let h = $(window).height() - 106
-        $('.row > div').css('height',h+'px')
+        $('.base_pr > div').css('height',h+'px')
       })
     }
   }
@@ -38,6 +38,6 @@ $('.collapsible').collapsible();
   if(localStorage.getItem('token')){
 $(window).resize(function(){
   let h = $(window).height() - 106
-  $('.row > div').css('height',h+'px')
+  $('.base_pr > div').css('height',h+'px')
 })
 }

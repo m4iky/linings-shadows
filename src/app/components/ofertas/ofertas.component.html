@@ -1,46 +1,43 @@
-<div class="container ">
+<h1 class="center-align">Ofertas</h1>
+<br>
+  <hr>
+
 
 
 <!--  -->
 <!-- Inicio Antes -->
-  <!-- <div class="col s12 m12 fadeIn animated fast">
-    <h2 class="header">Ofertas</h2>
+
+<div class="col s12 m12 fadeIn animated fast">
 
 
-    <div class="row">
 
-      <div class="col s12 m6" *ngFor="let oferta of this._vehiculos.vehiculo |async" >
-        <div class="card" >
-          <div class="card-image">
+    <div class="row bh">
 
-            <img [src]="oferta.url1" alt="">
-          </div>
-          </div>
-          <div class="card-content">
+      <div class="col s12 m6 " *ngFor="let oferta of this._vehiculos.vehiculo |async" >
+        <div class="card">
+<div class="card-image waves-effect waves-block waves-light">
+  <!-- <div style="height:250px;"> -->
 
+<img class="activator" style="margin-top:-50px;" [src]="oferta.url1">
+<!-- </div> -->
+</div>
+<div class="card-content">
+  <span class="card-title activator grey-text text-darken-4" style="font-size:18px;">{{oferta.marca}}  {{oferta.modelo}} <i class="material-icons right">more_vert</i></span>
+  <p *ngIf="oferta.estado==2"><button class="btn col m12 s12" [ngClass]="{'#d50000 red accent-4':oferta.estado==2}" ><i class="material-icons right">query_builder</i>Comprar ahora</button><a class="btn #039be5 #212121 grey darken-4 col m12 s12 center-align " style="font-size:20px;"><del>{{oferta.precio | currency:DOP:true}}</del> - {{oferta.precioOfer | currency:DOP:true }}</a><span style="text-align:center;display:block;font-weight:bold;">{{oferta.descripcionOfer}}</span>
+  <p *ngIf="oferta.estado==1"><button class="btn col m12 s12" [ngClass]="{'#00c853 green accent-4 ':oferta.estado==1}" ><i class="material-icons right">query_builder</i>Comprar ahora</button><a class="btn #039be5 light-blue darken-1 col m12 s12 center-align" style="font-size:20px;">{{oferta.precio | currency:DOP:true}}</a><br><br><br><br></p>
+</div>
+<div class="card-reveal">
+<span class="card-title grey-text text-darken-4" >{{ oferta.marca }} {{ oferta.modelo }}<i class="material-icons right">close</i></span>
+<p>{{ oferta.descripcion }}.</p>
+</div>
+</div>
 
-            <table>
-                    <tr><th>Marca : </th></tr>
-                    <tr><td>{{oferta.marca}}</td></tr>
-                    <tr><th>Modelo : </th></tr>
-                    <tr><td>{{oferta.modelo}}</td></tr>
-                    <tr><th>Descripcion : </th></tr>
-                    <tr><td>{{oferta.descripcion}}</td></tr>
-                    <tr><th>Precio oferta: </th></tr>
-
-            </table>
-
-          </div>
-          <div class="card-action">
-            <button class="btn #1565c0 blue darken-3">Comprar ahora</button>
-          </div>
         </div>
-      </div> -->
-
+      </div>
 
 <!-- FinAntes  -->
- <div class="col s12 m12 fadeIn animated fast">
-  <h2 class="header">Ofertas</h2>
+ <!-- <div class="col s12 m12 fadeIn animated fast">
+
 <div class="row">
 
 <div class="col s12 m6 l6" *ngFor="let oferta of this._vehiculos.vehiculo |async">
@@ -75,7 +72,9 @@
 </div>
 
 </div>
-</div>
+</div> -->
+
+
 <!--
       <div class="col s12 m6">
         <div class="card">
@@ -136,3 +135,21 @@
 
   </div>
 <!--  -->
+
+
+
+
+<hr>
+<div class="headir">
+
+<h1 class="center-align">
+
+  Lo mejor del mercado
+
+</h1>
+<h1 class="center-align">
+
+  <i class="material-icons large">access_time</i>
+
+</h1>
+<br><br>

@@ -10,20 +10,24 @@
 <div class="row conta">
 
   <!--  -->
-    <div class="col s12 m6 l4" *ngFor="let vehiculo of this._mostrarVehiculos.vehiculo |async">
+    <div class="col s12 m6 l4" *ngFor="let vehiculo of this._mostrarVehiculos.vehiculo |async"  >
       <div class="card ">
+                    <img *ngIf="vehiculo.estado==2" src="assets/Lazo.png" style="position:absolute; top:-5px; z-index:20; width:100px;right:-8px;" alt="">
           <div class="card-image waves-effect waves-block waves-light">
-            <div class="activator" style="background-size:cover;background-position:center;height:200px;">
-              <img [src]="vehiculo.url1" alt="">
-            </div>
+            <!-- <div class="activator" style="background-size:cover;background-position:center;height:250px;"> -->
+
+              <img [src]="vehiculo.url1" style="margin-top:-50px;" alt="">
+
+            <!-- </div> -->
           </div>
           <div class="card-content">
+
             <span class="card-title activator grey-text text-darken-4" style="font-size:18px;">{{vehiculo.marca}}  {{vehiculo.modelo}} <i class="material-icons right">more_vert</i></span>
-            <p *ngIf="vehiculo.estado==2"><button class="btn col m12 s12" [ngClass]="{'#d50000 red accent-4 tooltipped':vehiculo.estado==2}"  data-position="right" data-delay="50" data-tooltip=" EN OFERTA "><i class="material-icons right">query_builder</i>Comprar ahora</button><a class="btn #039be5 light-blue darken-1 col m12 s12 center-align" style="font-size:20px;"><del>{{vehiculo.precio | currency:DOP:true}}</del> - {{vehiculo.precioOfer | currency:DOP:true}}</a>{{vehiculo.descripcionOfer}}<br><br><br><br></p>
-            <p *ngIf="vehiculo.estado==1"><button class="btn col m12 s12" [ngClass]="{'#00c853 green accent-4 tooltipped':vehiculo.estado==1}"  data-position="right" data-delay="50" data-tooltip=" Disponible "><i class="material-icons right">query_builder</i>Comprar ahora</button><a class="btn #039be5 light-blue darken-1 col m12 s12 center-align" style="font-size:20px;">{{vehiculo.precio | currency:DOP:true}}</a><br><br><br><br></p>
+            <p *ngIf="vehiculo.estado==2"><button class="btn col m12 s12" [ngClass]="{'#d50000 red accent-4':vehiculo.estado==2}" ><i class="material-icons right">query_builder</i>Comprar ahora</button><a class="btn #039be5 #212121 grey darken-4 col m12 s12 center-align " style="font-size:20px;"><del>{{vehiculo.precio | currency:DOP:true}}</del> - {{vehiculo.precioOfer | currency:DOP:true}}</a><span style="text-align:center;display:block;font-weight:bold;">{{vehiculo.descripcionOfer}}</span>
+            <p *ngIf="vehiculo.estado==1"><button class="btn col m12 s12" [ngClass]="{'#01579b light-blue darken-4':vehiculo.estado==1}" ><i class="material-icons right">query_builder</i>Comprar ahora</button><a class="btn #212121 grey darken-4 col m12 s12 center-align" style="font-size:20px;">{{vehiculo.precio | currency:DOP:true}}</a><br><br><br><br></p>
 
         </div>
-          <div class="card-reveal #212121 grey darken-4">
+          <div class="card-reveal #212121 grey darken-4"  style="z-index:80!important;">
             <span class="card-title white-text text-darken-4 ">{{vehiculo.marca}} {{vehiculo.modelo}} <i class="material-icons right">close</i></span>
             <p class="white-text">{{vehiculo.descripcion}}</p>
             <button  [routerLink]="['/cars',vehiculo.$key]" class="btn #fafafa grey lighten-5 black-text waves-effect waves-light btn modal-trigger" href="#modal1"><i class="material-icons right" style="color:#4499b9" >photo_size_select_actual</i>imagenes</button>

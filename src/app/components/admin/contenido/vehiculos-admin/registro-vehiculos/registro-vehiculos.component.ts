@@ -32,6 +32,13 @@ export class RegistroVehiculosComponent implements OnInit {
   imagenes:FirebaseListObservable<any>
   editar:boolean=false;
   constructor(private db:AngularFireDatabase, private _vehiculosService: VehiculosService,private _key:ActivatedRoute) {
+    if(localStorage.getItem('token')){
+      $(document).ready(function(){
+        let h = $(window).height() - 106
+        $('.base_reg').css('height',h+'px')
+      })
+    }
+
     this._key.params.subscribe(res=>{
       this.parametro=res['id']
       if(this.parametro!="registrar"){
@@ -66,4 +73,11 @@ export class RegistroVehiculosComponent implements OnInit {
 
   }
 
+}
+
+if(localStorage.getItem('token')){
+$(window).resize(function(){
+let h = $(window).height() - 106
+  $('.base_reg').css('height',h+'px')
+})
 }

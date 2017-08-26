@@ -10,7 +10,7 @@
           <li><a [routerLink]="['cars']" routerLinkActive="activado"><i class="material-icons left">directions_car</i></a></li>
           <li *ngIf="estadoOfertas"><a  [routerLink]="['offers']" routerLinkActive="activado"><i class="material-icons left">alarm</i></a></li>
             <li><a  [routerLink]="['terms']" routerLinkActive="activado"><i class="material-icons left">playlist_add_check</i></a></li>
-          <li><a [routerLink]="['contacts']" routerLinkActive="activado"><i class="material-icons left">settings_phone</i></a></li>
+
           <li><a [routerLink]="['admin']" routerLinkActive="activado"><i class="material-icons left">account_circle</i>{{usuario | capitalizar}}</a></li>
         </ul>
       </div>
