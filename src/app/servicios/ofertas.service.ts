@@ -36,5 +36,24 @@ export class OfertasService {
     })
     Materialize.toast("La oferta se modifico  correctamente",3000,'#4caf50 green rounded')
   }
+buscador(objeto){
+
+  if(objeto==""){
+    this.mostrarOfertas()
+  }else{
+
+
+  this.Ofertas=this.db.list('vehiculos',{
+    query:{
+      orderByChild: 'marca',
+      equalTo: objeto
+    }
+
+
+  })
+    }
+}
+
+
 
 }

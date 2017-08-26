@@ -23,9 +23,14 @@ export class VehiculosAdminComponent implements OnInit {
     if (confirm('¿Desea eliminar este vehiculo?')) {
       this._Vehiculos.eliminar(key)
       Materialize.toast("Vehiculo eliminado correctamente", 3000,'#d50000 red accent-4 rounded')
-    } else {
-
     }
+
+
+  }
+
+encontrar(buscar){
+  alert(buscar)
+    this._Vehiculos.buscadorTiempoReal(buscar)
   }
 
 }
