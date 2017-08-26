@@ -190,4 +190,18 @@ resetImg=[]=[]
 
     }
 
+    buscadorTiempoReal(objeto){
+        if(objeto==""){
+          this.mostrarVehiculos()
+        }else{
+          this.vehiculo= this.db.list('vehiculos', {
+          query: {
+            orderByChild: 'marca',
+            equalTo: objeto
+          }
+        })
+        }
+
+    }
+
 }
