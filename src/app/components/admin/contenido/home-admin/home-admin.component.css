@@ -22,10 +22,10 @@ nav{
 }
 
 .selected{
-background: rgb(185, 247, 255)!important;
+  background:rgb(156, 207, 255)!important;
 }
 .select:hover{
-    background: rgb(185, 247, 255)!important;
+
     cursor: pointer;
 }
 @media (max-width:700px){
