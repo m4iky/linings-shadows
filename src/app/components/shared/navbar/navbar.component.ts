@@ -47,7 +47,7 @@ navbar:string[] = [
 estadoOfertas:boolean=false
 
 
-  constructor(db:AngularFireDatabase, private _loginService : LoginService) {
+  constructor(private db:AngularFireDatabase, private _loginService : LoginService) {
     //VALIDACION
     this.cambiar=new FormGroup({ // validacion de lso input
       'pass1':new FormControl('', [Validators.required, Validators.minLength(6)]),
@@ -96,6 +96,18 @@ estadoOfertas:boolean=false
             // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
             $('.modal').modal();
           });
+
+          const queryObservable = this.db.list('/vehiculos', {
+        query: {
+          orderByChild: 'estado',
+          equalTo: 2
+        }
+      }).subscribe(gg=>{
+        if(gg.length>0){
+          this.estadoOfertas=true
+        }
+
+      });
 
 
   }

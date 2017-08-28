@@ -22,10 +22,23 @@ estadoOfertas:boolean=false
   if(gg.length>0){
     this.estadoOfertas=true
   }
+
 });
+
    }
 
   ngOnInit() {
+    const queryObservable = this.db.list('/vehiculos', {
+  query: {
+    orderByChild: 'estado',
+    equalTo: 2
+  }
+}).subscribe(gg=>{
+  if(gg.length>0){
+    this.estadoOfertas=true
+  }
+
+});
   }
 
 }

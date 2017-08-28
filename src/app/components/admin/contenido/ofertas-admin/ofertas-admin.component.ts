@@ -15,7 +15,6 @@ cambio:any;
       this._Ofers.mostrarOfertas()
 
 
-
     }
 
   ngOnInit() {
