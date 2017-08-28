@@ -21,6 +21,9 @@ estadoOfertas:boolean=false
 }).subscribe(gg=>{
   if(gg.length>0){
     this.estadoOfertas=true
+  }else{
+    this.estadoOfertas=false
+
   }
 
 });
@@ -36,6 +39,9 @@ estadoOfertas:boolean=false
 }).subscribe(gg=>{
   if(gg.length>0){
     this.estadoOfertas=true
+  }else{
+    this.estadoOfertas=false
+
   }
 
 });
