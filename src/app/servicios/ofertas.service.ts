@@ -53,7 +53,6 @@ buscador(objeto){
          for ( let i of res){
            let vehiculo=i.marca.toLowerCase()
            if(vehiculo.indexOf(carro)>=0){
-
              this.Ofertas= this.db.list('vehiculos', {
              query: {
                orderByChild: 'marca',
