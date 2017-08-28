@@ -9,7 +9,8 @@
           <button *ngIf="estadoOfertas"  class="btn col  m6 #0277bd light-blue darken-3" [routerLink]="['/offers']">Ver nuestras ofertas</button>
           <button *ngIf="!estadoOfertas"  class="btn col  m6 #0277bd light-blue darken-3" [routerLink]="['/cars']">Ver nuestros vehiculos</button>
 
-          <i class="material-icons col m6 center large" style="margin-top:40px; color:rgb(134, 134, 134);">query_builder</i>
+          <i *ngIf="estadoOfertas" class="material-icons col m6 center large" style="margin-top:40px; color:rgb(134, 134, 134);">query_builder</i>
+          <i *ngIf="!estadoOfertas" class="material-icons col m6 center large" style="margin-top:40px; color:rgb(134, 134, 134);">public</i>
           <img src="assets/hi2.jpg" class="col m3" alt="">
 
         </div>
