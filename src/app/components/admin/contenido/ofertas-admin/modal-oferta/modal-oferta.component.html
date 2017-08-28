@@ -15,7 +15,7 @@ Modificar precio de Oferta
           </tr>
           <tr>
                 <td>
-                  <input type="text" formControlName="precioOfer" [(ngModel)]="oferta.precioOfer" name="descripcionOfer" value="">
+                  <input type="text" class="focus" formControlName="precioOfer" [(ngModel)]="oferta.precioOfer" name="descripcionOfer" value="">
 
                     <div [ngClass]="{'red-text': validar.get('precioOfer').errors?.required && validar.get('precioOfer').touched}"  *ngIf="validar.get('precioOfer').errors?.required && validar.get('precioOfer').touched">
                       Este campo es requerido

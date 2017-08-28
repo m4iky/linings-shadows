@@ -85,9 +85,10 @@ estadoOfertas:boolean=false
 }).subscribe(gg=>{
   if(gg.length>0){
     this.estadoOfertas=true
+    localStorage.setItem("Ofertas","1")
   }else{
     this.estadoOfertas=false
-
+    localStorage.removeItem("Ofertas")
   }
 });
 

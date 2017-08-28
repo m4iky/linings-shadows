@@ -11,7 +11,7 @@ declare var $
 export class VehiculosAdminComponent implements OnInit {
 vehiculos:FirebaseListObservable<any>
   constructor(private _Vehiculos:VehiculosService,private db:AngularFireDatabase) {
-    
+
 
 
 
@@ -20,6 +20,11 @@ vehiculos:FirebaseListObservable<any>
    }
 
   ngOnInit() {
+
+    ////focus
+    $('.autocompleteVeh').focus()
+
+    ///
 
     this._Vehiculos.mostrarVehiculos()
       this.inicializarAuto()
