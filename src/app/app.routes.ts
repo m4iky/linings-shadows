@@ -58,6 +58,7 @@ const APP_ROUTES: Routes = [
   { path: 'contacts', component: ContactoComponent },
   { path: 'terms', component: CondicionesComponent },
   { path: 'home', component: InicioComponent },
+    { path: 'home/:id', component: InicioComponent },
   { path: 'cars', component: VehiculosComponent },
     { path: 'cars/:key', component: VehiculosComponent },
     { path: 'offers', component: OfertasComponent,canActivate:[OfertasUrlService] },

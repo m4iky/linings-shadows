@@ -33,12 +33,12 @@ usuario:string;
 
 navbar:string[] = [
   'Inicio',
-  'Cars',
-  'Offers',
-  'Terms',
-  'Contacts',
+  'Vehiculos',
+  'Ofertas',
+  'Terminos',
+  'Contactos',
   // titulo
-  'RobertoMotors.com',
+  'Ejemplo.com',
 
   // admin
   ''
