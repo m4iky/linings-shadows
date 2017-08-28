@@ -34,15 +34,15 @@ import {LoginComponent} from './components/login/login.component';
 //G U A R D I A S
 import {GuardiaURLService} from './guardias/guardia-url.service';
 import {LoginUrlService} from './guardias/login-url.service';
-
+import {OfertasUrlService} from './guardias/ofertas-url.service'
 const APP_ROUTES: Routes = [
   {
     // A D M I N
     path: 'admin',
     component: AdminComponent,
     children:[
-      { path: 'offers/:key', component: OfertasAdminComponent,canActivate:[GuardiaURLService] },
-      { path: 'offers', component: OfertasAdminComponent,canActivate:[GuardiaURLService] },
+      { path: 'offers/:key', component: OfertasAdminComponent,canActivate:[GuardiaURLService,OfertasUrlService] },
+      { path: 'offers', component: OfertasAdminComponent,canActivate:[GuardiaURLService,OfertasUrlService] },
       { path: 'cars', component: VehiculosAdminComponent,canActivate:[GuardiaURLService] },
       { path: 'car/:id', component: RegistroVehiculosComponent,canActivate:[GuardiaURLService] },
       { path: 'cars/:id', component: VehiculosAdminComponent,canActivate:[GuardiaURLService] },
@@ -60,8 +60,8 @@ const APP_ROUTES: Routes = [
   { path: 'home', component: InicioComponent },
   { path: 'cars', component: VehiculosComponent },
     { path: 'cars/:key', component: VehiculosComponent },
-    { path: 'offers', component: OfertasComponent },
-  { path: 'offers/:key', component: OfertasComponent },
+    { path: 'offers', component: OfertasComponent,canActivate:[OfertasUrlService] },
+  { path: 'offers/:key', component: OfertasComponent,canActivate:[OfertasUrlService] },
   { path: '**', pathMatch: 'full', redirectTo: 'cars' }
 ];
 

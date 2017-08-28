@@ -32,6 +32,8 @@ export class RegistroVehiculosComponent implements OnInit {
   imagenes:FirebaseListObservable<any>
   editar:boolean=false;
   constructor(private db:AngularFireDatabase, private _vehiculosService: VehiculosService,private _key:ActivatedRoute) {
+    $("#icon_prefix").focus()
+
     if(localStorage.getItem('token')){
       $(document).ready(function(){
         let h = $(window).height() - 106
@@ -64,6 +66,7 @@ export class RegistroVehiculosComponent implements OnInit {
      }
    }
   ngOnInit() {
+    $("#icon_prefix").focus()
     this.validar=new FormGroup({
       'marca': new FormControl('',[Validators.required,Validators.pattern("^[a-zA-Z]*$")]),
       'modelo': new FormControl('',[Validators.required]),

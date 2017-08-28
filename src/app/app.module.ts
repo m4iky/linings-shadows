@@ -49,6 +49,7 @@ import { ModalOfertaComponent } from './components/admin/contenido/ofertas-admin
 import { OfertasVehiculoComponent } from './components/admin/contenido/vehiculos-admin/ofertas-vehiculo/ofertas-vehiculo.component';
 import { ModalComprasComponent } from './components/vehiculos/show-vehiculos/modal-compras/modal-compras.component';
 import {PaginacionService} from './servicios/paginacion.service';
+import {OfertasUrlService} from './guardias/ofertas-url.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -91,7 +92,7 @@ import {PaginacionService} from './servicios/paginacion.service';
     HttpModule,
     ReactiveFormsModule
   ],
-  providers: [VehiculosService,LoginService,GuardiaURLService, LoginUrlService,OfertasService,PaginacionService],
+  providers: [VehiculosService,LoginService,GuardiaURLService, LoginUrlService,OfertasService,PaginacionService,OfertasUrlService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

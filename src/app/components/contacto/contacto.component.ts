@@ -38,6 +38,7 @@ Contacto(){
   }
 
   ngOnInit() {
+    $("#icon_prefix").focus()
     this.validar=new FormGroup({
       'from_name':new FormControl('',[Validators.required]),
       'numero':new FormControl('',[Validators.required,Validators.pattern("[0-9/-]{1,}")]),

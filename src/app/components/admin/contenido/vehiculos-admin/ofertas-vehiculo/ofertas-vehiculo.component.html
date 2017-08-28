@@ -46,7 +46,7 @@
       <tr>
         <th>Precio Oferta:</th>
         <td>
-          <input type="text"  formControlName='precioOfer' [(ngModel)]='datos.precioOfer' name="precioOfer" value="">
+          <input type="text" id="mierda" formControlName='precioOfer' [(ngModel)]='datos.precioOfer' name="precioOfer" value="">
 
           <div [ngClass]="{'red-text': validar.get('precioOfer').errors?.required && validar.get('precioOfer').touched}"  *ngIf="validar.get('precioOfer').errors?.required && validar.get('precioOfer').touched">
             Este campo es requerido

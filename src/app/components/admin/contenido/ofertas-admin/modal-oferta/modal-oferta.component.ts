@@ -38,6 +38,10 @@ validar:FormGroup;
   }
 /////////////////////////////////////////////////////////
   ngOnInit() {
+///Focus al input
+$('.focus').focus()
+//
+
 
     this.validar=new FormGroup({
       'descripcionOfer':new FormControl('',[Validators.required]),

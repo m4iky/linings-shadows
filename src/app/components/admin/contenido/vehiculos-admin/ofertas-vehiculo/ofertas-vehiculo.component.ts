@@ -39,7 +39,12 @@ export class OfertasVehiculoComponent implements OnInit {
     });
   }
 
+
   ngOnInit() {
+    /// focus
+    $("#mierda").focus()
+    //
+
     this.validar = new FormGroup({
       'precioOfer' : new FormControl('', [Validators.required, Validators.pattern("[0-9]{1,}")]),
       'descripcionOfer' :new FormControl('',[Validators.required])
@@ -51,8 +56,10 @@ export class OfertasVehiculoComponent implements OnInit {
     // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
     $('.modal').modal();
   });
+
   }
 oferta(){
+
   this.datos.estado = 2
 
 
