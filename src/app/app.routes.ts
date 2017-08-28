@@ -60,7 +60,8 @@ const APP_ROUTES: Routes = [
   { path: 'home', component: InicioComponent },
   { path: 'cars', component: VehiculosComponent },
     { path: 'cars/:key', component: VehiculosComponent },
-  { path: 'offers', component: OfertasComponent },
+    { path: 'offers', component: OfertasComponent },
+  { path: 'offers/:key', component: OfertasComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'cars' }
 ];
 
