@@ -19,7 +19,9 @@ id;
 validar:FormGroup;
   constructor(private _Active:ActivatedRoute,private _Ofertas:OfertasService) {
     this._Active.params.subscribe(res=>{
+
       this._Ofertas.traerOferta(res['key']).subscribe(data=>{
+
         this.id=res['key']
         this.oferta.precioOfer=data.precioOfer
         this.oferta.descripcionOfer=data.descripcionOfer
@@ -30,6 +32,7 @@ validar:FormGroup;
     $(document).ready(function(){
 // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
       $('.modal').modal();
+
     });
   }
 /////Funcion que modificar
@@ -38,9 +41,7 @@ validar:FormGroup;
   }
 /////////////////////////////////////////////////////////
   ngOnInit() {
-///Focus al input
-$('.focus').focus()
-//
+
 
 
     this.validar=new FormGroup({
