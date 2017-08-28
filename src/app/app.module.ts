@@ -48,6 +48,7 @@ import {OfertasService} from './servicios/ofertas.service';
 import { ModalOfertaComponent } from './components/admin/contenido/ofertas-admin/modal-oferta/modal-oferta.component';
 import { OfertasVehiculoComponent } from './components/admin/contenido/vehiculos-admin/ofertas-vehiculo/ofertas-vehiculo.component';
 import { ModalComprasComponent } from './components/vehiculos/show-vehiculos/modal-compras/modal-compras.component';
+import {PaginacionService} from './servicios/paginacion.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -90,7 +91,7 @@ import { ModalComprasComponent } from './components/vehiculos/show-vehiculos/mod
     HttpModule,
     ReactiveFormsModule
   ],
-  providers: [VehiculosService,LoginService,GuardiaURLService, LoginUrlService,OfertasService],
+  providers: [VehiculosService,LoginService,GuardiaURLService, LoginUrlService,OfertasService,PaginacionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
