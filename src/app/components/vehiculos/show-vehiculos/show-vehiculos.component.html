@@ -10,7 +10,7 @@
 <div class="row conta">
 
   <!--  -->
-  <div class="boxx col s12 m6 l4 activator"  *ngFor="let vehiculo of this._mostrarVehiculos.vehiculo | async" >
+  <div class="boxx col s12 m6 l4 activator"  *ngFor="let vehiculo of pagedItems" >
 
     <div class="col s12 m12 l12" >
       <div class="card ">
@@ -206,6 +206,25 @@
   <!--  -->
 
 <app-show-vehiculo></app-show-vehiculo>
+
 <app-modal-compras></app-modal-compras>
 
 </div>
+<ul *ngIf="pager.pages && pager.pages.length" class="pagination center">
+    <li [ngClass]="{disabled:pager.currentPage === 1}" class="waves-effect">
+        <a (click)="setPage(1)">Primero</a>
+    </li>
+
+    <li [ngClass]="{disabled:pager.currentPage === 1}" class="waves-effect">
+        <a (click)="setPage(pager.currentPage - 1)"><i class="material-icons">chevron_left</i></a>
+    </li>
+    <li *ngFor="let page of pager.pages" [ngClass]="{'active #ef5350 red lighten-1':pager.currentPage === page}" class="waves-effect">
+        <a (click)="setPage(page)">{{page}}</a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="waves-effect">
+        <a (click)="setPage(pager.currentPage + 1)"><i class="material-icons">chevron_right</i></a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="waves-effect">
+        <a (click)="setPage(pager.totalPages)">Ultimo</a>
+    </li>
+</ul>
