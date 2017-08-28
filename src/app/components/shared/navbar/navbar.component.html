@@ -108,15 +108,30 @@
 
           Nueva contraseña:
           <input type="password" class="pass1" [(ngModel)]='datos.pass1' formControlName="pass1" name="pass1">
+            <div *ngIf="cambiar.get('pass1').errors?.minlength">
+              <p  class="red-text">
+              Este campo tiene que tener un minimo de {{cambiar.get('pass1').errors?.minlength.requiredLength}} caracteres.
+
+              </p>
+
+            </div>
 
         Repita nueva contraseña:
         <input type="password"class="pass2" [(ngModel)]='datos.pass2' formControlName="pass2" name="pass2" >
+        <div *ngIf="cambiar.get('pass2').errors?.minlength">
+          <p  class="red-text">
+          Este campo tiene que tener un minimo de {{cambiar.get('pass2').errors?.minlength.requiredLength}} caracteres.
+
+          </p>
+
+        </div>
+
 
     </div>
 
     <div class="modal-footer">
       <a class="modal-action modal-close waves-effect waves-green btn-flat ">Cerrar</a>
-      <button  [disabled]='!cambiar.valid' class="modal-action waves-effect waves-green btn-flat " (click)="cambiarpass()">Guardar</button>
+      <button  [disabled]="!cambiar.valid"  class="modal-action waves-effect waves-green btn-flat " (click)="cambiarpass(cambiar)">Guardar</button>
     </div>
   </form>
   </div>

@@ -100,7 +100,8 @@ estadoOfertas:boolean=false
 
   }
 
-      cambiarpass(){
+      cambiarpass(objeto){
+        console.log(objeto)
 
 
 

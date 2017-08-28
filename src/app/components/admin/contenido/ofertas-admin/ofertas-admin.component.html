@@ -19,7 +19,7 @@
         <i class="material-icons prefix">search</i>
 
         <!-- input para buscarlas ofertas -->
-        <input type="text"  #buscador   (keyup)="encontrar(buscador.value)"  id="autocomplete-input" class="autocomplete">
+        <input type="text"  #buscador   (keyup.enter)="encontrar(buscador.value)"  id="autocomplete-input" class="autocomplete">
         <!--  -->
 
         <label for="autocomplete-input">Buscar ofertas</label>
