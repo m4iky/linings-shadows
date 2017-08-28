@@ -1,15 +1,20 @@
 import { Injectable } from '@angular/core';
 import {Http} from '@angular/http';
+import { AngularFireDatabase, FirebaseListObservable,FirebaseObjectObservable } from 'angularfire2/database';
 import {Router} from '@angular/router';
 import 'rxjs/Rx'
 import {Md5} from 'ts-md5/dist/md5';
 
+declare var Materialize
 declare var $
 @Injectable()
 export class LoginService {
+  ok:boolean;
   url="https://optimux-a0924.firebaseio.com/usuarios.json"
+  pass:FirebaseObjectObservable<any[]>;
+  pass1:FirebaseListObservable<any>;
 
-  constructor(private http:Http, private rn:Router) { }
+  constructor(private http:Http, private db: AngularFireDatabase, private rn:Router) { }
 
   error:boolean=false
   logear(datos, pass){ /// funcion logear con los parametros para el objeto
@@ -19,6 +24,7 @@ export class LoginService {
       let id:string;
       let nombre:string;
       let tipo:string;
+      let nick:string;
 
       for(let key in usu){ /// for en la x cantidad de usuarios que llegan
 
@@ -27,6 +33,7 @@ export class LoginService {
           tipo=usu[key].tipo //se guarda el tipo de usuario en la variable
           nombre=usu[key].nombre
           id=key
+          nick = usu[key].usuario
 
         }else{
         }
@@ -38,6 +45,7 @@ export class LoginService {
         localStorage.setItem('token',token) /// se guarda el valor del token en el localStorage Por el nombre de token
         localStorage.setItem('tipo',tipo) /// se guarda el valor del tipo en el localStorage Por el nombre de tipo
         localStorage.setItem('id',id) /// se guarda el valor del tipo en el localStorage Por el nombre de tipo
+        localStorage.setItem('nick', nick)
 
         this.actualizarToken(id,token).subscribe(x=>{ // llamando la funcion de actualizarToken asignadole el id que se modificara y el valor a modificiar
           location.href='/admin' ///se redirecciona el usuario al final si ha cumplido todo y actualizandole el valor del token
@@ -67,4 +75,26 @@ export class LoginService {
     ///(Math.random() * (max - min + 1) + min) --- saca un random de numero mediante la reta de max - min suamndole  para al final sumandole nuevamente el numero min
   }
 
+
+
+
+
+
+
+
+
+
+  cambiarpass(pass){
+
+    let key = localStorage.getItem('id')
+    this.pass = this.db.object(`usuarios/${key}`)
+        this.pass.update(pass)
+
+
+
+  }
+  traerDatos(key){
+    let vieja:FirebaseObjectObservable<any>
+  return  vieja=this.db.object(`usuarios/${key}`)
+  }
 }

@@ -8,6 +8,14 @@ declare var $
 export class AdminComponent implements OnInit {
 
   constructor() {
+// // MODAL CAMBIAR CONTRASENA
+//     $(document).ready(function(){
+//         // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+//         $('.modal').modal();
+//       });
+
+
+
 
     $(document).ready(function(){
       $('.collapsible').collapsible();
@@ -22,6 +30,12 @@ export class AdminComponent implements OnInit {
   }
 
   ngOnInit() {
+  //   $(document).ready(function(){
+  //   // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+  //   $('.modal').modal();
+  // });
+
+
     $(document).ready(function(){
 $('.collapsible').collapsible();
 });

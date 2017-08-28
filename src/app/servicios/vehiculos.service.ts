@@ -79,7 +79,7 @@ resetImg=[]=[]
       })
     }// FIN CICLO FOR
 
-      Materialize.toast("Vehiculo agragado correctamente",3000,'#4caf50 green rounded')
+      Materialize.toast("Vehiculo agregado correctamente",3000,'#4caf50 green rounded')
       this._Router.navigate(['/admin','cars'])
   }
 

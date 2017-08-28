@@ -11,11 +11,16 @@ declare var $
 export class VehiculosAdminComponent implements OnInit {
 vehiculos:FirebaseListObservable<any>
   constructor(private _Vehiculos:VehiculosService,private db:AngularFireDatabase) {
+    
+
+
+
     this._Vehiculos.mostrarVehiculos()
 
    }
 
   ngOnInit() {
+
     this._Vehiculos.mostrarVehiculos()
       this.inicializarAuto()
   }
@@ -43,7 +48,7 @@ encontrar(buscar){
           for (let i in res){
                 nombre[res[i].marca]=null
           }
-        
+
           $(document).ready(function(){
             $('input.autocompleteVeh').autocomplete({
         data: nombre,
