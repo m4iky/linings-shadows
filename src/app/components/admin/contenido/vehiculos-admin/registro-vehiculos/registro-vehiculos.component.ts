@@ -60,11 +60,14 @@ export class RegistroVehiculosComponent implements OnInit {
    }
 
    ultimo(){
+     if(this.parametro=="registrar"){
+
      let ultimo:FirebaseListObservable<any[]>;
      ultimo = this.db.list('/vehiculos');
      ultimo.subscribe(ult => {
        this.vehiculos.posicion = ult.length + 1
      })
+   }
 
    }
    guardar(){

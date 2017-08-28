@@ -28,12 +28,13 @@
    <td>{{carro.marca}}</td>
    <td>{{carro.modelo}}</td>
    <td>{{carro.precio}}</td>
-   <td>#</td>
+   <td><h3 *ngIf="select != carro.$key" style="color:rgb(139, 139, 139);">{{carro.posicion }}</h3>
+   <h3 *ngIf="select == carro.$key" style="color:black">{{carro.posicion}}</h3></td>
     <td>
       <button *ngIf="select != carro.$key || i==0" class="btn #01579b light-blue darken-4" disabled><i class="material-icons">keyboard_arrow_up</i></button>
-      <button (click)="subir(carro.$key)" *ngIf="select == carro.$key && i!=0" class="btn #01579b light-blue darken-4" ><i class="material-icons">keyboard_arrow_up</i></button><br><br>
+      <button (click)="subir(carro.$key , carro.posicion)" *ngIf="select == carro.$key && i!=0" class="btn #01579b light-blue darken-4" ><i class="material-icons">keyboard_arrow_up</i></button><br><br>
       <button *ngIf="select != carro.$key || i==cant" class="btn #01579b light-blue darken-4" disabled><i class="material-icons">keyboard_arrow_down</i></button>
-      <button *ngIf="select == carro.$key && i!=cant" class="btn #01579b light-blue darken-4" ><i class="material-icons">keyboard_arrow_down</i></button>
+      <button (click)="bajar(carro.$key , carro.posicion)"  *ngIf="select == carro.$key && i!=cant" class="btn #01579b light-blue darken-4" ><i class="material-icons">keyboard_arrow_down</i></button>
     </td>
 
   </tr>

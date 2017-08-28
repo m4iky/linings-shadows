@@ -55,7 +55,7 @@
 <tr *ngFor="let vehiculo of this._Vehiculos.vehiculo | async;let i=index">
   <td>{{vehiculo.marca}}</td>
   <td>{{vehiculo.modelo}}</td>
- <td>NO se ha validado</td>
+ <td>{{ vehiculo.posicion }}</td>
  <td>{{vehiculo.precio}}</td>
  <td *ngIf="vehiculo.estado == 1">Disponible</td>
  <td *ngIf="vehiculo.estado != 1">Oferta</td>
