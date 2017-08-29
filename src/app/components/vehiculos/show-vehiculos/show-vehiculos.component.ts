@@ -18,6 +18,10 @@ pagedItems: any[];
 
 
   constructor(private _mostrarVehiculos:VehiculosService,private db:AngularFireDatabase,private paginacionService:PaginacionService) {
+
+
+
+
     $(document).ready(function(){
 $('.tooltipped').tooltip({delay: 50});
 });
@@ -25,7 +29,11 @@ $('.tooltipped').tooltip({delay: 50});
    }
   ngOnInit() {
     //paginacion
-    this.asincronico = this.db.list('vehiculos');
+    this.asincronico = this.db.list('vehiculos',{
+      query:{
+        orderByChild:'posicion'
+      }
+    });
     this.asincronico.subscribe(res =>{
       this.allItems = res
       this.setPage(1)

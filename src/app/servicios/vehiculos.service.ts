@@ -15,8 +15,7 @@ export class VehiculosService {
   url:string='https://optimux-a0924.firebaseio.com/vehiculos.json';
 
 
-resetImg=[]=[]
-
+  resetImg=[]=[]
   items: FirebaseListObservable<any[]>;
   constructor(private _http: Http, private db: AngularFireDatabase,private _Router:Router) {
 

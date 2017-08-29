@@ -22,10 +22,10 @@
        <div class="input-field col s12">
 
         <!-- marca -->
-         <input id="icon_prefix" type="text" formControlName="marca" [(ngModel)]='vehiculos.marca' name='marca' class="validate">
+         <input id="icon_prefix" type="text"  formControlName="marca" [(ngModel)]='vehiculos.marca' name='marca' class="validate">
         <!--  -->
         <div [ngClass]="{'red-text':validar.get('marca').errors?.pattern}" *ngIf="validar.get('marca').errors?.pattern">
-        Este campo solo puede llevar letra
+        Este campo solo puede llevar letras
       </div>
          <label *ngIf="!editar"  for="icon_prefix">Marca</label>
        </div>

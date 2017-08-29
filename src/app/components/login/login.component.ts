@@ -34,6 +34,7 @@ export class LoginComponent implements OnInit {
    }
 
   ngOnInit() {
+    $("#user").focus()
     $(document).ready(function(){
           $(window).scrollTop(0)
     });

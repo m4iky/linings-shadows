@@ -4,7 +4,7 @@ import * as _ from 'underscore';
 export class PaginacionService {
 
   constructor() { }
-  getPager(totalItems: number, currentPage: number = 1, pageSize: number = 2) {
+  getPager(totalItems: number, currentPage: number = 1, pageSize: number = 9) {
         // calculate total pages
         let totalPages = Math.ceil(totalItems / pageSize);
 

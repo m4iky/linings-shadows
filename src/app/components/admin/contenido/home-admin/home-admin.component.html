@@ -17,54 +17,27 @@
  <th>Modelo</th>
 
  <th>Precio</th>
- <th>Precio de oferta</th>
+ <th>Posición</th>
 </tr>
 </thead>
 
 <tbody>
 
-  <tr class="select">
-  <td><img src="assets/312.jpg" style="height:70px;" alt=""></td>
-   <td>asdsa</td>
-   <td>asdsad</td>
-   <td>asdasd</td>
-   <td>asdsad</td>
+  <tr class="select" [ngClass]="{ 'selected': select == carro.$key }"  *ngFor="let carro of vehiculos | async; let i = index;" (click)="sele(carro.$key)">
+  <td><img [src]="carro.url1" style="height:70px;" alt=""></td>
+   <td>{{carro.marca}}</td>
+   <td>{{carro.modelo}}</td>
+   <td>{{carro.precio}}</td>
+   <td><h3 *ngIf="select != carro.$key" style="color:rgb(139, 139, 139);">{{carro.posicion }}</h3>
+   <h3 *ngIf="select == carro.$key" style="color:black">{{carro.posicion}}</h3></td>
     <td>
-      <button class="btn #01579b light-blue darken-4" disabled><i class="material-icons">keyboard_arrow_up</i></button><br><br>
-      <button class="btn #01579b light-blue darken-4" disabled><i class="material-icons">keyboard_arrow_down</i></button>
+      <button *ngIf="select != carro.$key || i==0" class="btn #01579b light-blue darken-4" disabled><i class="material-icons">keyboard_arrow_up</i></button>
+      <button (click)="subir(carro.$key , carro.posicion)" *ngIf="select == carro.$key && i!=0" class="btn #01579b light-blue darken-4" ><i class="material-icons">keyboard_arrow_up</i></button><br><br>
+      <button *ngIf="select != carro.$key || i==cant" class="btn #01579b light-blue darken-4" disabled><i class="material-icons">keyboard_arrow_down</i></button>
+      <button (click)="bajar(carro.$key , carro.posicion)"  *ngIf="select == carro.$key && i!=cant" class="btn #01579b light-blue darken-4" ><i class="material-icons">keyboard_arrow_down</i></button>
     </td>
 
   </tr>
 
-  <tr class="select selected">
-  <td><img src="assets/312.jpg" style="height:70px;" alt=""></td>
-   <td>asdsa</td>
-   <td>asdsad</td>
-   <td>asdasd</td>
-   <td>asdsad</td>
-    <td>
-      <button class="btn #01579b light-blue darken-4"><i class="material-icons">keyboard_arrow_up</i></button><br><br>
-      <button class="btn #01579b light-blue darken-4"><i class="material-icons">keyboard_arrow_down</i></button>
-    </td>
-
-  </tr>
-
-
-  <tr class="select ">
-  <td><img src="assets/312.jpg" style="height:70px;" alt=""></td>
-   <td>asdsa</td>
-   <td>asdsad</td>
-   <td>asdasd</td>
-   <td>asdsad</td>
-    <td>
-      <button class="btn #01579b light-blue darken-4" disabled><i class="material-icons">keyboard_arrow_up</i></button><br><br>
-      <button class="btn #01579b light-blue darken-4" disabled><i class="material-icons">keyboard_arrow_down</i></button>
-    </td>
-
-  </tr>
-
-
-
-  </tbody>
   </table>
 </div>

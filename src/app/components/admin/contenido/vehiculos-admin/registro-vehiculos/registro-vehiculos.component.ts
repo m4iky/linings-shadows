@@ -11,12 +11,14 @@ declare var $
   styleUrls: ['./registro-vehiculos.component.css']
 })
 export class RegistroVehiculosComponent implements OnInit {
+
   vehiculos:any={
     marca: '',
     modelo: '',
     precio: '',
     descripcion: '',
     estado: 1,
+    posicion:'',
     img1:'',
     img2:'',
     img3:'',
@@ -26,12 +28,16 @@ export class RegistroVehiculosComponent implements OnInit {
     url3:'',
     url4:''
   }
+
   validar:FormGroup;
   Estado:string="registrar";
   parametro:any;
   imagenes:FirebaseListObservable<any>
   editar:boolean=false;
+
   constructor(private db:AngularFireDatabase, private _vehiculosService: VehiculosService,private _key:ActivatedRoute) {
+    $("#icon_prefix").focus()
+    this.ultimo()
     if(localStorage.getItem('token')){
       $(document).ready(function(){
         let h = $(window).height() - 106
@@ -51,11 +57,30 @@ export class RegistroVehiculosComponent implements OnInit {
 
     })
     this.imagenes= this.db.list('/vehiculos')
+   }
 
+   ultimo(){
+     if(this.parametro=="registrar"){
+     let ultimo:FirebaseListObservable<any[]>;
+     ultimo = this.db.list('/vehiculos',{
+        query:{
+          orderByChild:'posicion'
+        }
+
+     });
+
+     ultimo.subscribe(res=>{
+       let posicion
+        for (let a in res){
+           posicion=res[a].posicion
+
+        }
+          this.vehiculos.posicion=posicion+1
+     })
 
    }
 
-
+   }
    guardar(){
      if(this.parametro=="registrar"){
         this._vehiculosService.guardar(this.vehiculos)
@@ -64,6 +89,8 @@ export class RegistroVehiculosComponent implements OnInit {
      }
    }
   ngOnInit() {
+    this.ultimo()
+    $("#icon_prefix").focus()
     this.validar=new FormGroup({
       'marca': new FormControl('',[Validators.required,Validators.pattern("^[a-zA-Z]*$")]),
       'modelo': new FormControl('',[Validators.required]),

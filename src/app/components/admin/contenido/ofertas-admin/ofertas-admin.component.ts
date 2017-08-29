@@ -20,7 +20,7 @@ cambio:any;
   ngOnInit() {
     this._Ofers.mostrarOfertas()
     this.inicializarAuto()
-
+    $('.autocomplete').focus()
   }
 
 

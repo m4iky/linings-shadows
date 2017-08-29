@@ -28,6 +28,7 @@ compra:any[]=[];
     })
     this.ocultar()
 
+
     $(document).ready(function(){
 // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
       $('.modal').modal();
@@ -56,13 +57,14 @@ ocultar(){
 }
 ///////////
   ngOnInit() {
+    $(".ver").focus()
+
     this.validar=new FormGroup({
       'from_name':new FormControl('',[Validators.required]),
       'numero':new FormControl('',[Validators.required,Validators.pattern("[0-9/-]{1,}")]),
       'email_address':new FormControl('',[Validators.required,Validators.pattern("[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}")])
 
     })
-
     this.ocultar()
     $(document).ready(function(){
       $('.materialboxed').materialbox();
