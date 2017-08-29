@@ -45,6 +45,7 @@ encontrar(buscar){
   }
 
 
+
   // metodo para inicializar el autocompletado
   inicializarAuto(){
     let nombre = new Object()

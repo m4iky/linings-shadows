@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { AngularFireDatabase, FirebaseListObservable,FirebaseObjectObservable } from 'angularfire2/database';
 @Component({
   selector: 'app-home-admin',
   templateUrl: './home-admin.component.html',
@@ -7,9 +7,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeAdminComponent implements OnInit {
 
-  constructor() { }
+vehiculos:FirebaseListObservable<any[]>;
+cant = 0;
+select = "";
+  constructor(private db:AngularFireDatabase) {
+          this.vehiculos = db.list('vehiculos')
 
-  ngOnInit() {
   }
+  sele(key){
+    this.select = key
+  }
+  ngOnInit(){
+    this.vehiculos.subscribe(res =>{
+      if(this.select == ""){
+        this.select = res[0].$key
+      }
+      this.cant = res.length-1
+      
+    })
+  }
+subir(key){
 
+}
 }
