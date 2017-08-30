@@ -124,10 +124,65 @@ export class VehiculosService {
 
   eliminar(key){
     let imagen:any[]=[]
+    let posicion
     this.traerDatosEditar(key).subscribe(img=>{
+       posicion=img.posicion
+
      imagen.push(img)
 
+
+
     })
+    //Capturar posicion del registro actual
+    let actual:number;
+    this._http.get(`https://optimux-a0924.firebaseio.com/vehiculos/${key}.json`).map(res=>{
+      return res.json()
+
+    }).subscribe(ok=>{
+      actual = ok.posicion
+
+    })
+
+    //Buscar todos los registros
+    this._http.get(this.url).map(res=>{
+      return res.json()
+
+    }).subscribe(data=>{
+      //Validar registros con posiciones mayores
+        for(let a in data){
+          if(data[a].posicion > actual){
+            let posicion = data[a].posicion - 1
+            let id = a
+            //Actualizar registros con posiciones mayores
+            this._http.put(`https://optimux-a0924.firebaseio.com/vehiculos/${id}/posicion.json`, posicion).map(res=>{
+              return res.json()
+            }).subscribe()
+          }
+        }
+    })
+      this._http.delete(`https://optimux-a0924.firebaseio.com/vehiculos/${key}.json`).map(eliminar=>{
+        return eliminar.json()
+      }).subscribe()
+    // this.vehiculo=this.db.list('/vehiculos',{
+    //   query:{
+    //     orderByChild:'posicion',
+    //     startAt:posicion
+    //   }
+    // })
+    //
+    // this.vehiculo.subscribe(a=>{
+    //   for (let x of a ){
+    //         x.posicion=x.posicion-1
+    //
+    //         this.vehiculos=this.db.object(`vehiculos/${x.$key}`)
+    //         this.vehiculos.update(x)
+    //
+    //
+    //   }
+    //
+    // })
+
+
 
 
 
@@ -139,7 +194,7 @@ export class VehiculosService {
       // let storage = firebase.storage().ref(`vehiculos/`+ok)
       // storage.delete().then(function() {
       // })
-
+      
       let storage = firebase.storage().ref(`vehiculos/${ok}`)
       storage.delete().then(function() {
       })
@@ -154,16 +209,19 @@ export class VehiculosService {
     }
 
 
-
-    this.vehiculoMod=this.db.object(`/vehiculos/${key}`)
-    this.vehiculoMod.remove()
+    // this.vehiculoMod=this.db.object(`/vehiculos/${key}`)
+    // this.vehiculoMod.remove()
     }
   Random(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
 
     mostrarVehiculos(){
-      this.vehiculo=this.db.list('vehiculos')
+      this.vehiculo=this.db.list('vehiculos',{
+        query:{
+          orderByChild: 'posicion'
+        }
+      })
     }
 
     traerDatosEditar(key){
@@ -205,7 +263,7 @@ export class VehiculosService {
              for ( let i of res){
                let vehiculo=i.marca.toLowerCase()
                if(vehiculo.indexOf(carro)>=0){
-                  console.log(i.marca)
+
                  this.vehiculo= this.db.list('vehiculos', {
                  query: {
                    orderByChild: 'marca',

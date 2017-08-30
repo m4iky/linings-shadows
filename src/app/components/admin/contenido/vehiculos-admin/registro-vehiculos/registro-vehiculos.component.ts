@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
+import {Http} from '@angular/http';
 import {VehiculosService} from '../../../../../servicios/vehiculos.service';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2/database';
 import * as firebase from 'firebase';
@@ -34,10 +35,11 @@ export class RegistroVehiculosComponent implements OnInit {
   parametro:any;
   imagenes:FirebaseListObservable<any>
   editar:boolean=false;
-
-  constructor(private db:AngularFireDatabase, private _vehiculosService: VehiculosService,private _key:ActivatedRoute) {
-    $("#icon_prefix").focus()
+  constructor(private _http: Http, private db:AngularFireDatabase, private _vehiculosService: VehiculosService,private _key:ActivatedRoute) {
     this.ultimo()
+
+    $("#icon_prefix").focus()
+
     if(localStorage.getItem('token')){
       $(document).ready(function(){
         let h = $(window).height() - 106
@@ -59,34 +61,64 @@ export class RegistroVehiculosComponent implements OnInit {
     this.imagenes= this.db.list('/vehiculos')
    }
 
-   ultimo(){
-     if(this.parametro=="registrar"){
-     let ultimo:FirebaseListObservable<any[]>;
-     ultimo = this.db.list('/vehiculos',{
-        query:{
-          orderByChild:'posicion'
-        }
 
-     });
-
-     ultimo.subscribe(res=>{
-       let posicion
-        for (let a in res){
-           posicion=res[a].posicion
-
-        }
-          this.vehiculos.posicion=posicion+1
-     })
-
-   }
-
-   }
    guardar(){
-     if(this.parametro=="registrar"){
-        this._vehiculosService.guardar(this.vehiculos)
+       if(this.parametro=="registrar"){
+
+         setTimeout(()=>{
+             this._vehiculosService.guardar(this.vehiculos)
+         },80)
+
      }else{
        this._vehiculosService.modificar(this.parametro,this.vehiculos)
      }
+   }
+
+   ultimo(){
+     if(this.parametro=="registrar"){
+        this._http.get('https://optimux-a0924.firebaseio.com/vehiculos.json').map(res=>{
+          return res.json()
+
+        }).subscribe(ok=>{
+          let mayor=0
+          for(let a in ok){
+              if(ok[a].posicion > mayor){
+                mayor = ok[a].posicion
+              }
+            
+          }
+          this.vehiculos.posicion = mayor+1
+
+
+        })
+
+
+
+    //  let ultimo:FirebaseListObservable<any[]>;
+    //  ultimo = this.db.list('/vehiculos',{
+    //     query:{
+    //       orderByChild:'posicion',
+    //       limitToLast: 1
+    //     }
+    //   });
+     //
+     //
+     //
+    //  ultimo.subscribe(res=>{
+      //  let posicion
+        // for (let a in res){
+        //  posicion=res[a].posicion
+        // }
+      //   console.log(res)
+      //  this.vehiculos.posicion=res[0].posicion+1
+
+
+
+
+   }
+
+
+
    }
   ngOnInit() {
     this.ultimo()
