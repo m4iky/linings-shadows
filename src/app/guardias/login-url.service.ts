@@ -11,7 +11,7 @@ export class LoginUrlService implements CanActivate{
       return false
     }else{
       return true
-      
+
     }
   }
 }

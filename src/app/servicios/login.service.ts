@@ -48,7 +48,7 @@ export class LoginService {
         localStorage.setItem('nick', nick)
 
         this.actualizarToken(id,token).subscribe(x=>{ // llamando la funcion de actualizarToken asignadole el id que se modificara y el valor a modificiar
-          location.href='/#/admin' ///se redirecciona el usuario al final si ha cumplido todo y actualizandole el valor del token
+          location.href='/admin' ///se redirecciona el usuario al final si ha cumplido todo y actualizandole el valor del token
         })
       }else{
         this.error=true // ni idea porque le puso valor buleano ya que es obvio que funciono nada dara error xD
