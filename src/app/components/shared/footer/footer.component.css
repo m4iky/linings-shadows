@@ -7,3 +7,28 @@ body {
 div {
   flex: 1 0 auto;
 }
+
+.offset-l2{
+  font-size: 3rem;
+
+}
+
+.offset-l2 li{
+  float: left;
+  padding: 10px;
+}
+
+.fa-facebook-square:hover{
+	color: #3b5998;
+    transition: 0.5s;
+}
+
+.fa-twitter-square:hover{
+	color: #1dcaff;
+    transition: 0.5s;
+}
+
+.fa-instagram:hover{
+	color: #6a453b;
+    transition: 0.5s;
+}

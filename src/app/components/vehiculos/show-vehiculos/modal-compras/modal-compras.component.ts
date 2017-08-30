@@ -22,9 +22,17 @@ validar:FormGroup
 compra:any[]=[];
   constructor(private _mostrar:VehiculosService,private _router:ActivatedRoute) {
     this._router.params.subscribe(res=>{
-        this._mostrar.traerDatosEditar(res['key']).subscribe(x=>{
-            this.compra=x
-        })
+      
+        if(res['id']){
+          this._mostrar.traerDatosEditar(res['id']).subscribe(x=>{
+              this.compra=x
+          })
+        }else{
+          this._mostrar.traerDatosEditar(res['key']).subscribe(x=>{
+              this.compra=x
+          })
+        }
+
     })
     this.ocultar()
 
