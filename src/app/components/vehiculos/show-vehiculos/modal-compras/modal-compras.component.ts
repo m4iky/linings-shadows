@@ -22,7 +22,7 @@ validar:FormGroup
 compra:any[]=[];
   constructor(private _mostrar:VehiculosService,private _router:ActivatedRoute) {
     this._router.params.subscribe(res=>{
-      
+
         if(res['id']){
           this._mostrar.traerDatosEditar(res['id']).subscribe(x=>{
               this.compra=x
@@ -68,7 +68,7 @@ ocultar(){
     $(".ver").focus()
 
     this.validar=new FormGroup({
-      'from_name':new FormControl('',[Validators.required]),
+      'from_name':new FormControl('',[Validators.required,Validators.pattern("[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,64}")]),
       'numero':new FormControl('',[Validators.required,Validators.pattern("[0-9/-]{1,}")]),
       'email_address':new FormControl('',[Validators.required,Validators.pattern("[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}")])
 

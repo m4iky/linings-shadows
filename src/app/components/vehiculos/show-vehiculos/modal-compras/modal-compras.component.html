@@ -16,6 +16,9 @@ Comprar Vehiculo
     <div class="center-align" [ngClass]="{'red-text': validar.get('from_name').errors?.required && validar.get('from_name').touched}"  *ngIf="validar.get('from_name').errors?.required && validar.get('from_name').touched">
       Este campo es requerido
     </div>
+    <div class="center-align" [ngClass]="{'red-text':validar.get('from_name').errors?.pattern}"  *ngIf="validar.get('from_name').errors?.pattern">
+      No se admiten numeros
+    </div>
   </div>
 
   <div class="input-field col s12 m12 l10">

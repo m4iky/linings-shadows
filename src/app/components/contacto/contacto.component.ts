@@ -40,7 +40,7 @@ Contacto(){
   ngOnInit() {
     $("#icon_prefix").focus()
     this.validar=new FormGroup({
-      'from_name':new FormControl('',[Validators.required]),
+      'from_name':new FormControl('',[Validators.required,,Validators.pattern("[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,64}")]),
       'numero':new FormControl('',[Validators.required,Validators.pattern("[0-9/-]{1,}")]),
       'asunto':new FormControl('',[Validators.required]),
       'message_html':new FormControl('',[Validators.required]),

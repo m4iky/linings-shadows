@@ -27,9 +27,10 @@
   <p *ngIf="oferta.estado==2"><button [routerLink]="['/offers',oferta.$key]" class="btn col m12 s12 modal-trigger"  href="#modalCompras"  [ngClass]="{'#d50000 red accent-4':oferta.estado==2}" ><i class="material-icons right">query_builder</i>Comprar ahora</button><a class="btn #039be5 #212121 grey darken-4 col m12 s12 center-align " style="font-size:20px;"><del>{{oferta.precio | currency:DOP:true}}</del> - {{oferta.precioOfer | currency:DOP:true }}</a><span style="text-align:center;display:block;font-weight:bold;">{{oferta.descripcionOfer}}</span>
   <p *ngIf="oferta.estado==1"><button   class="btn col m12 s12 modal-trigger"  href="#modalCompras"  [ngClass]="{'#00c853 green accent-4 ':oferta.estado==1}" ><i class="material-icons right">query_builder</i>Comprar ahora</button><a class="btn #039be5 light-blue darken-1 col m12 s12 center-align" style="font-size:20px;">{{oferta.precio | currency:DOP:true}}</a><br><br><br><br></p>
 </div>
-<div class="card-reveal">
-<span class="card-title grey-text text-darken-4" >{{ oferta.marca }} {{ oferta.modelo }}<i class="material-icons right">close</i></span>
-<p>{{ oferta.descripcion }}.</p>
+<div class="card-reveal #212121 grey darken-4"  style="z-index:80!important;">
+  <span class="card-title white-text text-darken-4 ">{{oferta.marca}} {{oferta.modelo}} <i class="material-icons right">close</i></span>
+  <p class="white-text">{{oferta.descripcion}}</p>
+  <button  [routerLink]="['/offers',oferta.$key]" class="btn #fafafa grey lighten-5 black-text waves-effect waves-light btn modal-trigger" href="#modal1"><i class="material-icons right" style="color:#4499b9" >photo_size_select_actual</i>imagenes</button>
 </div>
 </div>
 
@@ -161,3 +162,4 @@
 <br><br>
 
 <app-modal-compras></app-modal-compras>
+<app-show-vehiculo></app-show-vehiculo>
