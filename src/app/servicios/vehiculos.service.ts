@@ -200,7 +200,7 @@ export class VehiculosService {
       })
 
 
-      if(g==4){
+      if(g==6){
 
         imagen = this.resetImg
         // this.vehiculoMod=this.db.object(`/vehiculos/${key}`)
