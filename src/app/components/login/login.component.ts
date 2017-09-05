@@ -33,11 +33,17 @@ export class LoginComponent implements OnInit {
 
    }
 
+
+
+
   ngOnInit() {
     $("#user").focus()
     $(document).ready(function(){
           $(window).scrollTop(0)
     });
+
+
+    
   }
 
   logear(){ // funcion que se llama en el submit

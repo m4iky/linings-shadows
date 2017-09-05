@@ -80,7 +80,7 @@
   <div class="file-field input-field col m12">
     <div class="btn #1e88e5 blue darken-1">
       <span>Imagen 1</span>
-      <input type="file"  accept="image/*" class="img1" multiple>
+      <input type="file"  accept="image/*" class="img1">
     </div>
     <div class="file-path-wrapper">
 
@@ -98,7 +98,7 @@
       <span>Imagen 2</span>
 
       <!-- imagen 2 -->
-      <input type="file"  accept="image/*" class="img2" multiple>
+      <input type="file"  accept="image/*" class="img2">
       <!--  -->
 
     </div>
@@ -111,7 +111,7 @@
   <div class="file-field input-field col m12">
     <div class="btn #1e88e5 blue darken-1">
       <span>Imagen 3</span>
-      <input type="file"  accept="image/*" class="img3" multiple>
+      <input type="file"  accept="image/*" class="img3">
     </div>
     <div class="file-path-wrapper">
 
@@ -126,7 +126,7 @@
   <div class="file-field input-field col m12">
     <div class="btn #1e88e5 blue darken-1">
       <span>Imagen 4</span>
-      <input type="file" accept="image/*" class="img4" multiple>
+      <input type="file" accept="image/*" class="img4">
     </div>
     <div class="file-path-wrapper">
 
@@ -136,6 +136,34 @@
 
     </div>
   </div>
+  <div class="file-field input-field col m12">
+    <div class="btn #1e88e5 blue darken-1">
+      <span>Imagen 5</span>
+      <input type="file" accept="image/*" class="img5">
+    </div>
+    <div class="file-path-wrapper">
+
+      <!-- Imagen 5 -->
+      <input class="file-path validate" type="text" placeholder="Subir una imagen" value="{{this.vehiculos.img5}}">
+        <!--  -->
+
+    </div>
+  </div>
+
+  <div class="file-field input-field col m12">
+    <div class="btn #1e88e5 blue darken-1">
+      <span>Imagen 6</span>
+      <input type="file" accept="image/*" class="img6">
+    </div>
+    <div class="file-path-wrapper">
+
+      <!-- Imagen 6 -->
+      <input class="file-path validate" type="text" placeholder="Subir una imagen" value="{{this.vehiculos.img6}}">
+        <!--  -->
+
+    </div>
+  </div>
+
 
   <!-- boton submit -->
     <button type="submit"  [disabled]="!validar.valid"  class="btn center col m6 offset-m3">{{Estado}}</button>

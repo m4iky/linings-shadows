@@ -44,7 +44,7 @@ export class VehiculosService {
 
     let estado=0;
        let array:any[]=[];
-          for (let a=1;a<=4;a++){
+          for (let a=1;a<=6;a++){
             array[a-1]=$(".img"+a).val()
               if(array[a-1]==""){
 
@@ -57,10 +57,10 @@ export class VehiculosService {
           }
 
 
-      if(estado==4){
+      if(estado==6){
 
 
-    for(let i = 1; i<=4; i++){
+    for(let i = 1; i<=6; i++){
 
       // Referencias
       let storage = firebase.storage().ref('vehiculos')
@@ -97,7 +97,7 @@ export class VehiculosService {
       Materialize.toast("Vehiculo Modificado correctamente",3000,'#4caf50 green rounded')
     this._Router.navigate(['/admin','cars'])
     //imagenes
-    for(let i = 1; i<=4; i++){
+    for(let i = 1; i<=6; i++){
 
       // Referencias
       let storage = firebase.storage().ref('vehiculos')
@@ -186,7 +186,7 @@ export class VehiculosService {
 
 
 
-    for(let g = 1; g<=4; g++){
+    for(let g = 1; g<=6; g++){
       let gg =imagen[0]
       let ok= eval("gg.img"+g)
 
@@ -194,7 +194,7 @@ export class VehiculosService {
       // let storage = firebase.storage().ref(`vehiculos/`+ok)
       // storage.delete().then(function() {
       // })
-      
+
       let storage = firebase.storage().ref(`vehiculos/${ok}`)
       storage.delete().then(function() {
       })
